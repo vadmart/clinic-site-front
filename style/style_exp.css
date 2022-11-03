@@ -294,13 +294,13 @@ footer {
      border-radius: 5px;
  }
 
- .form-container .title {
+ .form-container .title-box {
      font-size: 25px;
      font-weight: 500;
      position: relative;
  }
 
- .form-container .title:before {
+ .form-container .title-box:before {
      content: "";
      position: absolute;
      left: 0;

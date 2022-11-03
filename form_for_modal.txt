@@ -1,0 +1,37 @@
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="title-box">Реєстрація</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="inner-box" id="option-box">
+                            <label for="doctor" class="details">Лікар</label>
+                            <input class="textholder" id="doctor" type="text" placeholder="Введіть ПІБ лікаря"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="patient-firstname">
+                            <label for="firstname" class="details">Ім'я</label>
+                            <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="patient-lastname">
+                            <label for="lastname" class="details">Прізвище</label>
+                            <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="phone-number">
+                            <label for="number" class="details">Номер телефону</label>
+                            <input class="textholder" id="number" type="text" placeholder="Введіть номер телефону"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="health-complaint">
+                            <label for="complaint" class="details">Скарги на здоров'я</label>
+                            <textarea class="textholder" id="complaint"
+                                      placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Записатися">
+                    </div>
+                </form>
+            </div>
+        </div>

@@ -69,8 +69,6 @@ html {
 
 .bg-image, html, body {
     height: 100%;
-    background-image: url("../img/info_background3.jpg");
-    /*background-color: rgb(208, 255, 255);*/
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -168,19 +166,76 @@ html {
 }
 
 main {
-    margin: 120px 0;
+    margin: 80px 0;
     flex: 1 1 auto;
+}
+
+.brief-info-wrapper {
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.brief-info-wrapper * {
+    background-color: #fff;
+}
+
+.brief-info {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.brief-info .about-services {
+    display: grid;
+}
+
+.about-services h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.about-services span {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #777;
+}
+
+.about-services a {
+    text-decoration: none;
+    padding: 15px 20px;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+}
+
+.about-services #record-to-doctor {
+    color: white;
+    background-color: rgba(80, 170, 170, 1);
+}
+
+.about-services #record-to-doctor:hover {
+    background-color: rgba(0, 150, 150, 1);
+}
+
+.about-services #more-info {
+    color: black;
+}
+
+.about-services #more-info:hover {
+    background-color: #ccc;
 }
 
 .about-clinic {
     display: grid;
-    width: 70%;
-    margin: 0 auto;
-    border-radius: 10px;
     justify-items: center;
-    background-color: rgba(255, 255, 255, .6);
+    border-radius: 10px;
     row-gap: 40px;
-    padding: 2.5rem 0;
+    /*padding: 2.5rem 0; */
 }
 
 .about-clinic .description {
@@ -233,46 +288,74 @@ main {
     font-family: 'Satisfy', cursive;
 }
 
-.title-style {
-    display: grid;
-    justify-items: center;
-    grid-row-gap: 5px;
-    margin: 40px 0;
-}
-
-.title-style .title {
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
+.title-box h2 {
     text-transform: uppercase;
-    color: #222;
-    font-weight: 700;
-}
-
-.line-style {
-    width: 15px;
-    height: 15px;
-    border: solid 2px rgba(80, 170, 170, 1);
-    border-radius: 50%;
-    position: relative;
-}
-
-.line-style:before, .line-style:after {
-    content: '';
     position: absolute;
-    width: 5000%;
-    height: 3px;
+    font-size: 25px;
+    margin-top: 0;
+    background-color: #fff;
+    padding: 0 5px;
+    color: rgba(80, 170, 170, 1);
+}
+
+.title-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 25px 20px;
+    margin: 50px 0;
+}
+
+.title-box:before {
+    content: '';
+    display: block;
     background-color: rgba(80, 170, 170, 1);
+    height: 4px;
+    width: 100%;
+    top: 35px;
+    position: absolute;
 }
 
-.line-style:before {
-    top: 5px;
-    right: 30px;
-}
 
-.line-style:after {
-    top: 5px;
-    left: 30px;
-}
+/*.title-style {*/
+/*    display: grid;*/
+/*    justify-items: center;*/
+/*    grid-row-gap: 5px;*/
+/*    margin: 40px 0;*/
+/*}*/
+
+/*.title-style .title {*/
+/*    font-size: 25px;*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    text-transform: uppercase;*/
+/*    color: #222;*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*.line-style {*/
+/*    width: 15px;*/
+/*    height: 15px;*/
+/*    border: solid 2px rgba(80, 170, 170, 1);*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.line-style:before, .line-style:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 3px;*/
+/*    background-color: rgba(80, 170, 170, 1);*/
+/*}*/
+
+/*.line-style:before {*/
+/*    top: 5px;*/
+/*    right: 30px;*/
+/*}*/
+
+/*.line-style:after {*/
+/*    top: 5px;*/
+/*    left: 30px;*/
+/*}*/
 
 .block-doctor {
     display: grid;
@@ -457,13 +540,13 @@ main {
     border-radius: 10px;
 }
 
-.form-container .title {
+.form-container .title-box {
     font-size: 25px;
     font-weight: 500;
     position: relative;
 }
 
-.form-container .title:before {
+.form-container .title-box:before {
     content: "";
     position: absolute;
     left: 0;
@@ -808,60 +891,4 @@ footer .socials {
     background-color: rgba(80, 170, 170, 1);
     text-align: center;
     width: 100vw;
-}
-
-.brief-info-wrapper {
-    background-color: #fff;
-}
-
-.brief-info {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    height: 450px;
-    margin: 0 auto;
-}
-
-.brief-info .about-services {
-    display: grid;
-    /*align-content: center;*/
-}
-
-.about-services h2 {
-    font-family: "Roboto", sans-serif;
-    font-size: 52px;
-    font-weight: 700;
-    text-transform: capitalize;
-}
-
-.about-services span {
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    color: #777;
-}
-
-.about-services a {
-    text-decoration: none;
-    padding: 15px 20px;
-    border: solid 1px black;
-    border-radius: 10px;
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-}
-
-.about-services #record-to-doctor {
-    color: white;
-    background-color: rgba(80, 170, 170, 1);
-}
-
-.about-services #record-to-doctor:hover {
-    background-color: rgba(0, 150, 150, 1);
-}
-
-.about-services #more-info {
-    color: black;
-}
-
-.about-services #more-info:hover {
-    background-color: #ccc;
 }
