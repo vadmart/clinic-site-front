@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Сайт районної клініки</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="clinic-head">
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="index.html" class="logo"><img src="icons/clinic_logo.png" alt=""></a>
+            </li>
+            <li class="menu-item dropdown">
+                <a class="btn dropbtn">Лікарня</a>
+                <ul class="dropdown-content">
+                    <li>
+                        <a class="inner-btn" href="">Про лікарню</a>
+                    </li>
+                    <li>
+                        <a class="inner-btn" href="contacts.html">Контакти</a>
+                    </li>
+                    <li>
+                        <a class="inner-btn" href="vacancy.html">Вакансії</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a class="btn" href="staff.html">Наші лікарі</a>
+            </li>
+            <li class="menu-item">
+                <a class="btn" href="#registration">Реєстрація</a>
+            </li>
+            <li class="menu-item">
+                <a class="btn" href="schedule-work.html">Графік роботи</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="title-style">
+            <div class="title">Загальна інформація</div>
+            <div class="line-style"></div>
+        </div>
+<div class="about-clinic">
+            <div class="quote-wrapper">
+                <div class="quote">Головним скарбом життя є не землі, що ти їх завоював, не багатства, що їх маєш у
+                    скринях... Головним скарбом життя є здоров’я,
+                    і, щоб його зберегти, потрібно багато що знати.
+                </div>
+                <div class="quote-author">-Авіцена</div>
+            </div>
+            <div class="description">
+                Недаремно наведена цитата є девізом обслуговування пацієнтів. Завдяки чималому досвіду
+                наших лікарів клієнти не тільки швидко одужують, але й отримують консультацію щодо того,
+                як запобігти такого захворювання.
+                Харківська районна клініка №496 надає медичну допомогу
+                згідно з конституцією України та законам України, постановам Верховної Ради України, документам,
+                постановам і розпорядженням Кабінету Міністрів України, актам Президента України,
+                нормативним та методичним документам Міністерства охорони здоров’я України, рішенням
+                Харківської міської ради та її виконавчого комітету, наказам Департаменту охорони здоров’я
+                Харківської міської ради, Статута та іншим нормативним актам.
+            </div>
+        </div>
+        <div class="title-style" id="registration">
+        <div class="title">Реєстрація на прийом</div>
+        <div class="line-style"></div>
+    </div>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="title">Реєстрація</div>
+            <form action="#">
+                <div class="user-details">
+                    <div class="inner-box" id="option-box">
+                        <label for="doctor" class="details">Лікар</label>
+                        <input class="textholder" id="doctor" type="text" placeholder="Введіть ПІБ лікаря" required>
+                    </div>
+                    <div class="inner-box" id="patient-firstname">
+                        <label for="firstname" class="details">Ім'я</label>
+                        <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я" required>
+                    </div>
+                    <div class="inner-box" id="patient-lastname">
+                        <label for="lastname" class="details">Прізвище</label>
+                        <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище" required>
+                    </div>
+                    <div class="inner-box" id="phone-number">
+                        <label for="number" class="details">Номер телефону</label>
+                        <input class="textholder" id="number" type="text" placeholder="Введіть номер телефону" required>
+                    </div>
+                    <div class="inner-box" id="health-complaint">
+                        <label for="complaint" class="details">Скарги на здоров'я</label>
+                        <textarea class="textholder" id="complaint" placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Записатися">
+                </div>
+            </form>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h3>Харківська районна клініка</h3>
+            <p>Комунальне некомерційне підприємство "Міська поліклініка № 496" Харківської міської ради</p>
+            <ul class="socials">
+                <li>
+                    <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="https://youtube.com"><i class="fa fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2008-2022</p>
+            <p>Міністерство охорони здоров'я</p>
+        </div>
+    </footer>
+</div>
+<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    background-image: url("../img/info_background3.jpg");
+    background-attachment: fixed;
+}
+
+.clinic-head {
+    background-color: rgba(100, 192, 192, 1);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    text-align: center;
+    background-color: rgba(208, 255, 255);
+    padding: 15px 0;
+}
+
+.logo .logo-title {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo-title {
+    text-decoration: none;
+    color: grey;
+}
+
+.menu-item {
+    list-style: none;
+    padding: 20px 15px;
+}
+
+.menu-item a {
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(240, 240, 240);
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+
+.menu-item a:hover {
+  background-color: green;
+  color: rgb(255, 255, 255);
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu .menu-item .hidden {
+  display: none;
+  top: 74px;
+  left: -25px;
+  list-style: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.hidden a {
+  display: block;
+  padding: 12px 16px;
+  color: black;
+  background-color: rgb(230, 230, 230);
+}
+
+.menu .menu-item:hover .hidden {
+  display: block;
+}
+
+.main {
+    margin: 120px 0;
+    flex: 1 1 auto;
+}
+
+.distinguish {
+    border-bottom: solid 2px;
+    pointer-events: none;
+}
+
+.about-clinic .quote-wrapper {
+}
+
+.quote-wrapper .quote{
+    position: relative;
+    padding: 50px;
+    font-family: 'Satisfy', cursive;
+    margin: 0 30px;
+    background-color: #fff;
+}
+
+.quote-wrapper .quote:before {
+    content: open-quote;
+    top: 15px;
+    left: 15px;
+}
+
+.quote-wrapper .quote:after {
+    content: close-quote;
+    bottom: 15px;
+    right: 100px;
+}
+
+.quote-wrapper .quote:before,
+.quote-wrapper .quote:after {
+    display: block;
+    position: absolute;
+    background-color: rgba(200, 200, 200, 0.8);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 50%;
+}
+
+.quote-author {
+    position: absolute;
+    right: 30px;
+    background-color: inherit;
+}
+
+.about-clinic .description {
+    margin: 60px 30px 0 30px;
+    line-height: 30px;
+}
+
+
+.topic-title {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: solid 2px black;
+    margin: 25px 0;
+}
+
+.block-doctor {
+    display: flex;
+    margin: 20px 20px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+    /*border-bottom: solid 3px rgba(0, 0, 0, 0.2);*/
+}
+
+.block-doctor * {
+    background-color: #fff;
+}
+
+.block-doctor > * {
+    padding: 0 10px;
+}
+
+img {
+    height: 350px;
+    width: 350px;
+}
+
+.doctors {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.description-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.description-block * {
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+}
+
+.description-block:first-child {
+    font-weight: bold;
+}
+
+.description-block:last-child {
+    /*font-weight: bold;*/
+}
+
+@media screen and (max-width: 670px) {
+    .block-doctor {
+        flex-direction: column;
+    }
+    .doctors {
+        padding: 10px 12px;
+    }
+}
+
+/*@media screen and (max-width: 730px) {*/
+/*    .doctors {*/
+/*        grid-template-columns: 1fr;*/
+/*        justify-content: center;*/
+/*        margin: 0 auto;*/
+/*    }*/
+/*}*/
+
+.working-mode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.laboratory title {
+    margin: 100px;
+}
+
+.working-mode > * {
+    align-self: center;
+    padding: 30px 0;
+}
+
+.working {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(151, 207, 231, 0.8);
+}
+
+.working * {
+    font-size: 22px;
+    padding: 20px;
+}
+
+
+
+footer {
+    background-color: rgba(100, 192, 192, 1);
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-mail {
+    line-height: 25px;
+}
+
+.footer-mail:before {
+    content: "";
+    float: left;
+    display: inline-block;
+    padding: 0 3px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../icons/mail.svg");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+
+.footer-contacts:before {
+    content: "";
+    float: left;
+    display: inline-block;
+    padding: 0 3px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../icons/phone.png");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+
+ .form-wrapper {
+     display: flex;
+     height: 60vh;
+     justify-content: center;
+     align-items: center;
+     padding: 10px;
+     /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*/
+ }
+
+ .form-container {
+     max-width: 700px;
+     width: 100%;
+     background: #fff;
+     padding: 25px 30px;
+     border-radius: 5px;
+ }
+
+ .form-container .title {
+     font-size: 25px;
+     font-weight: 500;
+     position: relative;
+ }
+
+ .form-container .title:before {
+     content: "";
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     height: 3px;
+     width: 100%;
+     background: linear-gradient(135deg, #71b7e6, #9b59b6);
+ }
+
+ .form-container form .user-details {
+     display: grid;
+     width: 100%;
+     /*height: 200px;*/
+     grid-template-areas: "opt opt"
+                          "n ln"
+                          "num num"
+                          "complaint-desc";
+     /*grid-template-columns: 200px 1fr;*/
+     /*grid-template-rows: 40px 40px 40px 150px;*/
+ }
+
+ form .user-details > #option-box {
+     grid-area: opt;
+ }
+
+ form .user-details > #patient-firstname {
+     grid-area: n;
+ }
+
+ form .user-details > #patient-lastname {
+     grid-area: ln;
+ }
+
+ form .user-details > #phone-number {
+     grid-area: num;
+ }
+
+ form .user-details > #health-complaint {
+     grid-area: complaint-desc;
+ }
+
+ form .user-details .inner-box {
+     margin-bottom: 15px;
+     width: calc(100% / 2 - 20px);
+ }
+
+ .user-details .inner-box .details {
+     display: block;
+     font-weight: 500;
+     margin-bottom: 5px;
+ }
+
+ .user-details .inner-box input {
+     height: 45px;
+     width: 100%;
+     outline: none;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     padding-left: 15px;
+     font-size: 16px;
+     border-bottom-width: 2px;
+     transition: all 0.3s ease;
+ }
+
+ .user-details .inner-box input:focus,
+ .user-details .inner-box input:valid {
+     border-color: #9b59b6;
+ }
+
+ form .button input {
+     height: 100%;
+     width: 100%;
+     outline: none;
+     color: #fff;
+     background: linear-gradient(135deg, #71b7e6, #9b59b6);
+     border: none;
+     font-size: 18px;
+     letter-spacing: 1px;
+     font-weight: 500;
+ }
+
+ form .button input:hover {
+     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+ }
+@media (max-width: 584px) {
+    .form-container {
+        max-width: 100%;
+    }
+    form .user-details .inner-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .form-container form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar {
+        width: 0;
+    }
+}
+/*@media screen and (max-width: 590px) {*/
+/*    footer {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/
+
+
+ /*<li class="menu menu-item inner">*/
+ /*                   <a href="#our-staff">Лікарня</a>*/
+ /*                   <ul class="hidden">*/
+ /*                     <li>*/
+ /*                       <a href="">Про лікарню</a>*/
+ /*                     </li>*/
+ /*                     <li>*/
+ /*                       <a href="">Інформація пацієнтам</a>*/
+ /*                     </li>*/
+ /*                     <li>*/
+ /*                       <a href="">Вакансії</a>*/
+ /*                     </li>*/
+ /*                   </ul>*/
+ /*               </li>*/

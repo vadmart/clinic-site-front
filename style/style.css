@@ -1,0 +1,811 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    /*overflow-x: hidden;*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vacancy-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.vacancy {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.vacancy img {
+    width: 600px;
+    height: 400px;
+}
+
+.vacancy-info {
+    font-size: 20px;
+}
+
+.location-contacts {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.contacts .subtitle {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgba(80, 170, 170, 1);
+}
+
+.location-contacts .contacts {
+    display: grid;
+}
+
+.location-contacts .inner-contact {
+    line-height: 1.3em;
+}
+
+.location-contacts .inner-contact * {
+    font-size: 1.3rem;
+}
+
+.location-contacts .inner-contact .link {
+    text-decoration: none;
+    color: #4299E9;
+    font-weight: 500;
+}
+
+.bg-image, html, body {
+    height: 100%;
+    background-image: url("../img/info_background3.jpg");
+    /*background-color: rgb(208, 255, 255);*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.clinic-head {
+    background-color: rgba(80, 170, 170, 1);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
+.menu {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu-item {
+    padding: 0 15px;
+    position: relative;
+}
+
+.menu-item .logo img{
+    height: 100px;
+}
+
+.menu-item .btn {
+    position: relative;
+    display: block;
+    padding-bottom: 15px;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: rgb(255, 255, 255, .7);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 100ms;
+}
+
+.menu-item .btn:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    bottom: 5px;
+    width: 0;
+    transition: width .35s;
+}
+
+.menu-item .btn:hover {
+    color: rgb(255, 255, 255, 1);
+}
+
+.menu-item .btn:hover:after {
+    width: 100%;
+}
+
+.menu .menu-item .dropdown-content {
+    display: none;
+    list-style: none;
+    padding: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(230, 230, 230);
+
+}
+
+.dropdown-content .inner-btn {
+    float: none;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: black;
+}
+
+.inner-btn:hover {
+    color: #6B6B6B;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    margin: 80px 0;
+    flex: 1 1 auto;
+}
+
+.about-clinic {
+    display: grid;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 10px;
+    justify-items: center;
+  background-color: rgba(255, 255, 255, .6);
+    row-gap: 40px;
+    padding: 2.5rem 0;
+}
+
+.about-clinic .description {
+    line-height: 30px;
+    width: 80%;
+    font-size: 20px;
+    font-family: "Arial", sans-serif;
+}
+
+.quote-wrapper {
+  width: 70%;
+}
+
+.quote-wrapper .quote {
+    position: relative;
+    padding: 50px;
+    font-family: 'Satisfy', cursive;
+    background-color: rgba(208, 255, 255, .8);
+    border-radius: 10px;
+}
+
+.quote-wrapper .quote:before {
+    content: open-quote;
+    top: 15px;
+    left: 15px;
+}
+
+.quote-wrapper .quote:after {
+    content: close-quote;
+    bottom: 15px;
+    right: 100px;
+}
+
+.quote-wrapper .quote:before,
+.quote-wrapper .quote:after {
+    display: block;
+    position: absolute;
+    background-color: rgba(200, 200, 200, 0.8);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 50%;
+}
+
+.quote-author {
+    position: absolute;
+    right: 20%;
+    background-color: inherit;
+    font-family: 'Satisfy', cursive;
+}
+
+.title-style {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 5px;
+    margin: 40px 0;
+}
+
+.title-style .title {
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    color: #222;
+    font-weight: 700;
+}
+
+.line-style {
+    width: 15px;
+    height: 15px;
+    border: solid 2px rgba(80, 170, 170, 1);
+    border-radius: 50%;
+    position: relative;
+}
+
+.line-style:before, .line-style:after {
+    content: '';
+    position: absolute;
+    width: 5000%;
+    height: 3px;
+    background-color: rgba(80, 170, 170, 1);
+}
+
+.line-style:before {
+    top: 5px;
+    right: 30px;
+}
+
+.line-style:after {
+    top: 5px;
+    left: 30px;
+}
+
+.block-doctor {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 20px 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.block-doctor .full-description {
+    display: grid;
+}
+
+.block-doctor .full-description .description-header {
+    font-size: 20px;
+}
+
+.block-doctor > * {
+    padding: 0 10px;
+}
+
+.block-doctor img {
+    height: 350px;
+    width: 250px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.doctors {
+    padding: 5px 0;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.description-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.07);
+    margin: 15px 10px 80px 0;
+    padding: 10px;
+    position: relative;
+}
+
+.description-block .description {
+    line-height: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+    .block-doctor {
+        flex-direction: column;
+    }
+}
+
+.description-block .doctor-btn {
+    text-decoration: none;
+    color: black;
+    background-color: #0CC5EE;
+    position: absolute;
+    padding: 10px 15px;
+    border-radius: 20px;
+    right: 0;
+    bottom: -60px;
+}
+
+.description-block .doctor-btn:hover {
+    background-color: #1975BB;
+}
+
+.description-block::before {
+    content: '\201C';
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: -10px;
+    font-size: 25px;
+    font-weight: 800;
+    color: #fff;
+    background-color: rgba(6, 151, 214, 1);
+    height: 23px;
+    width: 45px;
+}
+
+.description-block * {
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.description-block:first-child {
+    font-weight: bold;
+}
+
+.full-description .description-block .experience-description {
+    font-weight: 800;
+}
+
+@media screen and (max-width: 730px) {
+    .doctors {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.table-wrapper {
+    display: grid;
+    justify-items: center;
+    row-gap: 40px;
+}
+
+.table-block {
+    display: grid;
+    row-gap: 40px;
+    margin: 0 auto;
+}
+
+.table-wrapper .working-table {
+    font-family: "Arial", sans-serif;
+    font-weight: lighter;
+    border-collapse: collapse;
+}
+
+.table-block .working-table .table-title {
+    font-size: 1.6rem;
+    padding-bottom: 20px;
+}
+
+.working-table thead,
+.working-table tbody {
+    background-color: rgb(255, 255, 255, .7);
+}
+
+.working-table thead th {
+    padding: 10px 0;
+}
+
+.table-wrapper .working-table,
+.table-wrapper .working-table tr {
+    border: solid 1px rgb(100, 100, 100, 0.5);
+}
+
+.working-table .schedule-doctor-name {
+    padding: 10px;
+}
+
+.working-table .schedule-info {
+    border-left: solid 2px rgba(108, 192, 192, 1);
+    padding: 4px;
+    font-size: 20px;
+}
+
+.working-table td {
+    width: 190px;
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.form-wrapper {
+    display: flex;
+    height: 50em;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-container {
+    max-width: 700px;
+    width: 100%;
+    background: rgb(255, 255, 255, .8);
+    display: grid;
+    grid-row-gap: 15px;
+    padding: 25px 30px;
+    border-radius: 10px;
+}
+
+.form-container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.form-container .title:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(135deg, #0697D6, #97E7E7);
+}
+
+
+.form-container form .user-details {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "opt opt"
+                          "name ln"
+                          "num num"
+                          "complaint-desc complaint-desc";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+}
+
+form .user-details > #option-box {
+    grid-area: opt;
+}
+
+form .user-details > #patient-firstname {
+    grid-area: name;
+}
+
+form .user-details > #patient-lastname {
+    grid-area: ln;
+}
+
+form .user-details > #phone-number {
+    grid-area: num;
+}
+
+form .user-details > #health-complaint {
+    grid-area: complaint-desc;
+    display: block;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: inherit;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.select {
+    display: flex;
+    width: 100%;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: .25em;
+    position: relative;
+}
+
+select:focus .select {
+    border: 1px solid #ccc;
+}
+
+.select::after {
+    content: '▼';
+    color: #000;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    pointer-events: none;
+    transition: all .25s ease;
+}
+
+.select:hover::after {
+    color: rgba(68, 120, 242, 1);
+}
+
+form .user-details .inner-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.user-details .inner-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .details {
+    font-size: 1.4rem;
+}
+
+.user-details .inner-box textarea {
+    width: 100%;
+    height: 300px !important;
+    font-size: 15px;
+    resize: none;
+}
+
+.user-details .inner-box .textholder {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .inner-box .textholder:focus,
+.user-details .inner-box input:valid {
+    border-color: rgba(68, 120, 242, 1);
+}
+
+form .button {
+    height: 50px;
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(135deg, #0697D6, #97E7E7);
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+form .button input:hover {
+    background: linear-gradient(-135deg, #0697D6, #97E7E7);
+    color: #eee;
+}
+
+.user-details #health-complaint textarea {
+    outline: none;
+}
+
+.user-details #health-complaint textarea:focus {
+    outline: #9b59b6;
+}
+
+@media (max-width: 584px) {
+    .form-container {
+        max-width: 100%;
+    }
+
+    form .user-details .inner-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-container form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    footer {
+        flex-direction: column;
+    }
+}
+
+.doctor-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.doctor-info, .reviews .review {
+    background-color: rgb(255, 255, 255, 0.5);
+    backdrop-filter: blur(13px);
+}
+
+.doctor-info {
+    display: flex;
+    border: solid 2px #000000;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.doctor-info img {
+    width: 210px;
+    height: 300px;
+}
+
+.doctor-info > * {
+    margin: 0 20px;
+}
+
+.doctor-info .doctor-description {
+    font-size: 25px;
+    display: grid;
+    grid-template-rows: 2fr 2fr 2fr;
+    position: relative;
+}
+
+.doctor-description .profession {
+    font-style: italic;
+}
+
+.doctor-description .category-info {
+    font-weight: 800;
+}
+
+.doctor-info .feedback_btn {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0CC5EE;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.doctor-info .feedback_btn:hover {
+    background-color: #1975BB;
+}
+
+.doctor-info .doctor-description .prof-info {
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .doctor-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .doctor-info .feedback_btn {
+        left: 25%;
+    }
+}
+
+.reviews {
+    display: grid;
+    justify-items: center;
+    row-gap: 20px;
+}
+
+.reviews * {
+    font-size: 20px;
+}
+
+.reviews .review {
+    padding: 5px 10px 30px 10px;
+    max-width: 60%;
+    border: solid 1px #000000;
+    border-radius: 10px;
+}
+
+.reviews .review > * {
+    margin: 10px 0;
+}
+
+.review .account > * {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer {
+    width: 100vw;
+    background-color: rgba(208, 255, 255, 1);
+    height: auto;
+    font-family: "Arial", sans-serif;
+    padding-top: 10px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content h3 {
+    word-spacing: 2px;
+    line-height: 3rem;
+}
+
+footer .socials {
+    list-style: none;
+    display: flex;
+    margin: 15px 0;
+}
+
+.socials li {
+    margin: 0 10px;
+}
+
+.socials li a {
+    color: #aaa;
+}
+
+.socials a i {
+    font-size: 20px;
+    transition: color .3s;
+}
+
+.socials li a:hover .fa-youtube {
+    color: red;
+}
+
+.socials li a:hover .fa-facebook {
+    color: #0CC5FF;
+}
+
+.socials li a:hover .fa-instagram {
+    color: darkviolet;
+}
+
+.socials li a:hover .fa-twitter {
+    color: #0CC5BF;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    background-color: rgba(80, 170, 170, 1);
+    text-align: center;
+    width: 100vw;
+}
