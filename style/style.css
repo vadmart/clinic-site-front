@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 * {
     margin: 0;
@@ -103,7 +103,7 @@ html {
     position: relative;
 }
 
-.menu-item .logo img{
+.menu-item .logo img {
     height: 100px;
 }
 
@@ -168,7 +168,7 @@ html {
 }
 
 main {
-    margin: 80px 0;
+    margin: 120px 0;
     flex: 1 1 auto;
 }
 
@@ -178,7 +178,7 @@ main {
     margin: 0 auto;
     border-radius: 10px;
     justify-items: center;
-  background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .6);
     row-gap: 40px;
     padding: 2.5rem 0;
 }
@@ -191,7 +191,7 @@ main {
 }
 
 .quote-wrapper {
-  width: 70%;
+    width: 70%;
 }
 
 .quote-wrapper .quote {
@@ -808,4 +808,60 @@ footer .socials {
     background-color: rgba(80, 170, 170, 1);
     text-align: center;
     width: 100vw;
+}
+
+.brief-info-wrapper {
+    background-color: #fff;
+}
+
+.brief-info {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.brief-info .about-services {
+    display: grid;
+    /*align-content: center;*/
+}
+
+.about-services h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.about-services span {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #777;
+}
+
+.about-services a {
+    text-decoration: none;
+    padding: 15px 20px;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+}
+
+.about-services #record-to-doctor {
+    color: white;
+    background-color: rgba(80, 170, 170, 1);
+}
+
+.about-services #record-to-doctor:hover {
+    background-color: rgba(0, 150, 150, 1);
+}
+
+.about-services #more-info {
+    color: black;
+}
+
+.about-services #more-info:hover {
+    background-color: #ccc;
 }
