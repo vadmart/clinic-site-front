@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наші лікарі</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrapper">
     <header class="clinic-head">
         <ul class="menu">
             <li class="menu-item">
-                <a href="index.html" class="logo"><img src="icons/clinic_logo.png" alt=""></a>
+                <a href="../index.html" class="logo">
+                    <img src="../icons/clinic_logo.png" alt="">
+                </a>
             </li>
             <li class="menu-item dropdown">
                 <a class="btn dropbtn">Лікарня</a>
@@ -19,10 +22,10 @@
                         <a class="inner-btn" href="">Про лікарню</a>
                     </li>
                     <li>
-                        <a class="inner-btn" href="contacts.html">Контакти</a>
+                        <a class="inner-btn" href="../pages/contacts.html">Контакти</a>
                     </li>
                     <li>
-                        <a class="inner-btn" href="vacancy.html">Вакансії</a>
+                        <a class="inner-btn" href="../pages/vacancy.html">Вакансії</a>
                     </li>
                 </ul>
             </li>
@@ -33,7 +36,7 @@
                 <a class="btn" href="#registration">Реєстрація</a>
             </li>
             <li class="menu-item">
-                <a class="btn" href="schedule-work.html">Графік роботи</a>
+                <a class="btn" href="../pages/schedule-work.html">Графік роботи</a>
             </li>
         </ul>
     </header>
@@ -43,7 +46,15 @@
         </div>
         <div class="doctors">
             <div class="block-doctor">
-                <div class="photo"><img src="img/alina-radecka.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/alina-radecka.png 250w,
+                                 ../img/200w/alina-radecka.png 200w,
+                                 ../img/150w/alina-radecka.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/alina-radecka.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Радецька Аліна Миколаївна, лікар загальної практики-сімейний
                         лікар</h5>
@@ -53,12 +64,20 @@
                             Номер телефону: 548-69-213, 0664586771<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 10 років</p>
-                        <a class="doctor-btn" href="">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/alina-radecka.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/alina-tezer.png" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/alina-tezer.png 250w,
+                                 ../img/200w/alina-tezer.png 200w,
+                                 ../img/150w/alina-tezer.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/alina-tezer.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Тезер Аліна Олександрівна, лікар терапевт дільничий</h5>
                     <div class="description-block">
@@ -67,12 +86,20 @@
                             Номер телефону: 856-14-04, 0963868677<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 2 роки</p>
-                        <a class="doctor-btn" href="alina-tezer.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/alina-tezer.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/pavlo-lozovyi.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/pavlo-lozovyi.png 250w,
+                                 ../img/200w/pavlo-lozovyi.png 200w,
+                                 ../img/150w/pavlo-lozovyi.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/pavlo-lozovyi.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Лозовий Павло Викторович, офтальмолог</h5>
                     <div class="description-block">
@@ -86,7 +113,15 @@
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/aliona-grydenko.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/aliona-grydenko.png 250w,
+                                 ../img/200w/aliona-grydenko.png 200w,
+                                 ../img/150w/aliona-grydenko.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/aliona-grydenko.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Гриденко Альона Олегівна, лікар загальної практики-сімейний
                         лікар</h5>
@@ -96,12 +131,20 @@
                             Номер телефону: 325-46-52, 0953185823<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 20 років</p>
-                        <a class="doctor-btn" href="aliona-grydenko.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/aliona-grydenko.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/sylvestr-chikov.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/sylvestr-chikov.png 250w,
+                                 ../img/200w/sylvestr-chikov.png 200w,
+                                 ../img/150w/sylvestr-chikov.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/sylvestr-chikov.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Чіков Сильвестр Русланович, офтальмолог</h5>
                     <div class="description-block">
@@ -110,26 +153,42 @@
                             Номер телефону: 154-89-75, 0962508177<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 15 років</p>
-                        <a class="doctor-btn" href="aliona-grydenko.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/aliona-grydenko.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/natalia-petrenko.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/sarkis-ozhegov.png 250w,
+                                 ../img/200w/sarkis-ozhegov.png 200w,
+                                 ../img/150w/sarkis-ozhegov.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/sarkis-ozhegov.png" alt="">
+                </div>
                 <div class="full-description">
-                    <h5 class="description-header">Петренко Наталія Іванівна, отоларинголог</h5>
+                    <h5 class="description-header">Ожегов Саркіс Арсеньєвич, отоларинголог</h5>
                     <div class="description-block">
                         <p class="description">Перша кваліфікаційна категорія<br>
                             Номер кабінету № 24<br>
                             Номер телефону: 201-25-20, 0992510272<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 4 роки</p>
-                        <a class="doctor-btn" href="aliona-grydenko.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/aliona-grydenko.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/yana_trymova.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/yana_trymova.png 250w,
+                                 ../img/200w/yana_trymova.png 200w,
+                                 ../img/150w/yana_trymova.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/yana_trymova.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Тримова Яна Генадіївна, лікар терапевт дільничий</h5>
                     <div class="description-block">
@@ -138,12 +197,20 @@
                             Номер телефону: 156-20-45, 0687921027<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 7 років</p>
-                        <a class="doctor-btn" href="aliona-grydenko.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/aliona-grydenko.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
             <div class="block-doctor">
-                <div class="photo"><img src="img/anna-vesela.jpg" alt=""></div>
+                <div class="photo">
+                    <img srcset="../img/250w/anna-vesela.png 250w,
+                                 ../img/200w/anna-vesela.png 200w,
+                                 ../img/150w/anna-vesela.png 150w"
+                         sizes="(max-width: 768px) 150px,
+                                (max-width: 1300px) 200px,
+                                250px"
+                         src="../img/250w/anna-vesela.png" alt="">
+                </div>
                 <div class="full-description">
                     <h5 class="description-header">Весела Ганна Романівна, дантист</h5>
                     <div class="description-block">
@@ -152,7 +219,7 @@
                             Номер телефону: 156-20-45, 0687921027<br>
                         </p>
                         <p class="experience-description">Стаж роботи: 10 років</p>
-                        <a class="doctor-btn" href="aliona-grydenko.html">Докладніше...</a>
+                        <a class="doctor-btn" href="../pages/aliona-grydenko.html">Докладніше...</a>
                     </div>
                 </div>
             </div>
@@ -185,5 +252,6 @@
     </footer>
 </div>
 <script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
+<script src="../js/header.js"></script>
 </body>
 </html>

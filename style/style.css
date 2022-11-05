@@ -2,7 +2,6 @@
 
 * {
     margin: 0;
-    /*overflow-x: hidden;*/
 }
 
 html {
@@ -92,30 +91,43 @@ html {
     justify-content: space-around;
 }
 
-.menu li {
-    list-style: none;
-}
-
 .menu-item {
-    padding: 0 15px;
+    list-style: none;
+    padding: 0 10px;
     position: relative;
-}
-
-.menu-item .logo img {
-    height: 100px;
 }
 
 .menu-item .btn {
     position: relative;
     display: block;
+    font-size: 1.4rem;
     padding-bottom: 15px;
-    font-size: 1.7rem;
     letter-spacing: 2px;
     text-decoration: none;
     color: rgb(255, 255, 255, .7);
     border-radius: 5px;
     cursor: pointer;
     transition: all 100ms;
+}
+
+.menu-item a img {
+    max-height: 80px;
+}
+
+@media (max-width: 1031px) {
+    .menu-item .btn {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 932px) {
+    .menu-item {
+        padding: 0 10px;
+    }
+
+    .menu-item .btn {
+        font-size: calc(1rem + 0.1 * (100vw / 932));
+    }
 }
 
 .menu-item .btn:after {
@@ -145,7 +157,6 @@ html {
     position: absolute;
     z-index: 1;
     background-color: rgb(230, 230, 230);
-
 }
 
 .dropdown-content .inner-btn {
@@ -153,7 +164,7 @@ html {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: black;
 }
 
@@ -311,7 +322,7 @@ main {
     display: block;
     background-color: rgba(80, 170, 170, 1);
     height: 4px;
-    width: 100%;
+    width: 95%;
     top: 35px;
     position: absolute;
 }
@@ -371,17 +382,11 @@ main {
     display: grid;
 }
 
-.block-doctor .full-description .description-header {
-    font-size: 20px;
-}
-
 .block-doctor > * {
     padding: 0 10px;
 }
 
 .block-doctor img {
-    height: 350px;
-    width: 250px;
     border-radius: 10px;
     outline: none;
 }
@@ -446,9 +451,25 @@ main {
 }
 
 .description-block * {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-family: "Inter", sans-serif;
     background-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 1300px) {
+    .description-block * {
+        font-size: 1rem;
+    }
+
+    .description {
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .description-block * {
+        font-size: 0.8rem;
+    }
 }
 
 .description-block:first-child {
@@ -505,13 +526,12 @@ main {
 }
 
 .working-table .schedule-doctor-name {
-    padding: 10px;
+    padding: 20px;
 }
 
 .working-table .schedule-info {
     border-left: solid 2px rgba(108, 192, 192, 1);
     padding: 4px;
-    font-size: 20px;
 }
 
 .working-table td {
@@ -520,6 +540,12 @@ main {
     text-align: center;
     font-size: 20px;
     font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+    .working-table td {
+        font-size: 15px;
+    }
 }
 
 .form-wrapper {
