@@ -74,6 +74,12 @@ html, body {
     background-repeat: no-repeat;
 }
 
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: black !important;
+}
+
 .clinic-head {
     background-color: rgba(80, 170, 170, 1);
     font-family: 'Roboto', sans-serif;
@@ -452,18 +458,24 @@ main {
     display: grid;
     justify-items: center;
     row-gap: 40px;
+    min-width: 768px;
 }
 
 .table-block {
     display: grid;
     row-gap: 40px;
     margin: 0 auto;
+    position: relative;
+    overflow: auto;
+    min-width: 768px;
 }
 
 .table-wrapper .working-table {
     font-family: "Arial", sans-serif;
     font-weight: lighter;
     border-collapse: collapse;
+    min-width: 768px;
+    width: 100%;
 }
 
 .working-table .table-title {
@@ -927,7 +939,7 @@ footer .socials {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     main {
         margin: 40px 0;
     }
@@ -967,21 +979,19 @@ footer .socials {
     .doctor-info {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .doctor-info .feedback_btn {
-        left: 25%;
+        position: relative;
+        text-align: center;
+        margin: 10px 0;
     }
 
-    .working-table td {
-        font-size: 0.8rem;
-        width: 130px;
-        height: 50px;
-    }
-
-    .working-table .table-title {
-        font-size: 1.2rem;
-        padding-bottom: 10px;
+    .working-table {
+        max-width: 100%;
+        overflow-x: visible;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
