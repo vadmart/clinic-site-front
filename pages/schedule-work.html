@@ -8,10 +8,12 @@
 </head>
 <body>
 <div class="wrapper">
-    <header class="clinic-head">
+        <header class="clinic-head">
         <ul class="menu">
             <li class="menu-item">
-                <a href="../index.html" class="logo"><img src="../icons/clinic_logo.png" alt=""></a>
+                <a href="../index.html" class="logo">
+                    <img src="../img/clinic_logo.png" alt="">
+                </a>
             </li>
             <li class="menu-item dropdown">
                 <a class="btn dropbtn">Лікарня</a>
@@ -28,7 +30,7 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <a class="btn" href="../style/staff.html">Наші лікарі</a>
+                <a class="btn" href="staff.html">Наші лікарі</a>
             </li>
             <li class="menu-item">
                 <a class="btn" href="#registration">Реєстрація</a>
@@ -37,6 +39,42 @@
                 <a class="btn" href="schedule-work.html">Графік роботи</a>
             </li>
         </ul>
+        <div class="mobile-menu">
+            <div class="mobile-menu-btn-wrapper">
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <ul class="mobile-menu-content">
+                <li class="dropdown-mobile"></li>
+                <li class="menu-item">
+                    <a class="btn" href="../index.html">Додому</a>
+                </li>
+                <li class="menu-item dropdown-content">
+                    <a class="btn dropbtn">Лікарня</a>
+                    <ul>
+                        <li>
+                            <a class="btn" href="">Про лікарню</a>
+                        </li>
+                        <li>
+                            <a class="btn" href="contacts.html">Контакти</a>
+                        </li>
+                        <li>
+                            <a class="btn" href="vacancy.html">Вакансії</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="btn" href="staff.html">Наші лікарі</a>
+                </li>
+                <li class="menu-item">
+                    <a class="btn" href="#registration">Реєстрація</a>
+                </li>
+                <li class="menu-item">
+                    <a class="btn" href="schedule-work.html">Графік роботи</a>
+                </li>
+            </ul>
+        </div>
     </header>
     <main>
         <div class="title-box">
@@ -62,7 +100,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Радецька Аліна Миколаївна, лікар загальної
+                            <div class="schedule-name">Радецька Аліна Миколаївна, лікар загальної
                                 практики-сімейний лікар
                             </div>
                         </td>
@@ -93,7 +131,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Тезер Аліна Олександрівна, лікар загальної
+                            <div class="schedule-name">Тезер Аліна Олександрівна, лікар загальної
                                 практики-сімейний лікар
                             </div>
                         </td>
@@ -124,7 +162,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Лозовий Павло Викторович, офтальмолог</div>
+                            <div class="schedule-name">Лозовий Павло Викторович, офтальмолог</div>
                         </td>
                         <td>
                             <div class="schedule-info">73-А</div>
@@ -153,7 +191,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Гриденко Альона Олегівна, лікар загальної
+                            <div class="schedule-name">Гриденко Альона Олегівна, лікар загальної
                                 практики-сімейний лікар
                             </div>
                         </td>
@@ -184,7 +222,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">
+                            <div class="schedule-name">
                                 Чіков Сильвестр Русланович, кардіолог
                             </div>
                         </td>
@@ -215,7 +253,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Петренко Наталія Іванівна, отоларинголог</div>
+                            <div class="schedule-name">Петренко Наталія Іванівна, отоларинголог</div>
                         </td>
                         <td>
                             <div class="schedule-info">24</div>
@@ -244,7 +282,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Тримова Яна Генадіївна, хірург</div>
+                            <div class="schedule-name">Тримова Яна Генадіївна, хірург</div>
                         </td>
                         <td>
                             <div class="schedule-info">15</div>
@@ -273,7 +311,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Весела Ганна Романівна, дантист</div>
+                            <div class="schedule-name">Весела Ганна Романівна, дантист</div>
                         </td>
                         <td>
                             <div class="schedule-info">35</div>
@@ -322,7 +360,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Рентген кабінет
+                            <div class="schedule-name">Рентген кабінет
                             </div>
                         </td>
                         <td>
@@ -352,7 +390,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Лабораторія
+                            <div class="schedule-name">Лабораторія
                             </div>
                         </td>
                         <td>
@@ -382,7 +420,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Мамологія
+                            <div class="schedule-name">Мамологія
                             </div>
                         </td>
                         <td>
@@ -412,7 +450,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="schedule-doctor-name">Кабінет томографії
+                            <div class="schedule-name">Кабінет томографії
                             </div>
                         </td>
                         <td>
@@ -445,23 +483,22 @@
             </div>
         </div>
     </main>
-    <footer>
+   <footer>
         <div class="footer-content">
-            <h3>Харківська районна клініка №496</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus repellat, explicabo cupiditate quos
-                quidem consequuntur.</p>
+            <h3>Харківська районна клініка</h3>
+            <p>Комунальне некомерційне підприємство "Міська поліклініка № 496" Харківської міської ради</p>
             <ul class="socials">
                 <li>
-                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-instagram"></i></a>
+                    <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-youtube"></i></a>
+                    <a href="https://youtube.com"><i class="fa fa-youtube"></i></a>
                 </li>
             </ul>
         </div>
