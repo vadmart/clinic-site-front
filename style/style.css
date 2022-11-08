@@ -516,7 +516,6 @@ main {
 
 .form-wrapper {
     display: flex;
-    height: 50em;
     justify-content: center;
     align-items: center;
     padding: 10px;
@@ -532,13 +531,13 @@ main {
     border-radius: 10px;
 }
 
-.form-container .title-box {
+.form-container .title-block {
     font-size: 25px;
     font-weight: 500;
     position: relative;
 }
 
-.form-container .title-box:before {
+.form-container .title-block:before {
     content: "";
     position: absolute;
     left: 0;
@@ -552,17 +551,13 @@ main {
 .form-container form .user-details {
     display: grid;
     width: 100%;
-    grid-template-areas: "opt opt"
-                          "name ln"
+    grid-template-areas:  "name ln"
+                          "family family"
                           "num num"
                           "complaint-desc complaint-desc";
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 30px;
-}
-
-form .user-details > #option-box {
-    grid-area: opt;
 }
 
 form .user-details > #patient-firstname {
@@ -571,6 +566,10 @@ form .user-details > #patient-firstname {
 
 form .user-details > #patient-lastname {
     grid-area: ln;
+}
+
+form .user-details > #family-doctor-block {
+    grid-area: family;
 }
 
 form .user-details > #phone-number {
@@ -650,6 +649,15 @@ form .user-details .inner-box {
     height: 300px !important;
     font-size: 15px;
     resize: none;
+}
+
+.user-details .inner-box span[id=family-doctor] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 1.4rem;
+    font-style: italic;
 }
 
 .user-details .inner-box .textholder {
@@ -992,27 +1000,6 @@ footer .socials {
         max-width: 100%;
         overflow-x: visible;
         -webkit-overflow-scrolling: touch;
-    }
-}
-
-@media screen and (max-width: 590px) {
-
-    .form-container {
-        max-width: 100%;
-    }
-
-    form .user-details .inner-box {
-        margin-bottom: 15px;
-        width: 100%;
-    }
-
-    .form-container form .user-details {
-        max-height: 300px;
-        overflow-y: scroll;
-    }
-
-    .user-details::-webkit-scrollbar {
-        width: 0;
     }
 }
 

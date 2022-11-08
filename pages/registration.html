@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти</title>
+    <title>Реєстрація на прийом</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
 <div class="wrapper">
-        <header class="clinic-head">
+    <header class="clinic-head">
         <ul class="menu">
             <li class="menu-item">
                 <a href="../index.html" class="logo">
@@ -33,7 +33,7 @@
                 <a class="btn" href="staff.html">Наші лікарі</a>
             </li>
             <li class="menu-item">
-                <a class="btn" href="registration.html">Реєстрація</a>
+                <a class="btn disabled" href="registration.html">Реєстрація</a>
             </li>
             <li class="menu-item">
                 <a class="btn" href="schedule-work.html">Графік роботи</a>
@@ -54,7 +54,7 @@
                     <a class="btn dropbtn">Лікарня</a>
                     <ul>
                         <li>
-                            <a class="btn" href="">Про лікарню</a>
+                            <a class="btn" href="#">Про лікарню</a>
                         </li>
                         <li>
                             <a class="btn" href="contacts.html">Контакти</a>
@@ -68,7 +68,7 @@
                     <a class="btn" href="staff.html">Наші лікарі</a>
                 </li>
                 <li class="menu-item">
-                    <a class="btn" href="registration.html">Реєстрація</a>
+                    <a class="btn disabled" href="#">Реєстрація</a>
                 </li>
                 <li class="menu-item">
                     <a class="btn" href="schedule-work.html">Графік роботи</a>
@@ -77,43 +77,44 @@
         </div>
     </header>
     <main>
-        <div class="title-box">
-            <h2>Контакти</h2>
-        </div>
-        <div class="location-contacts">
-            <div class="contacts">
-                <div class="inner-contact" id="phones">
-                    <span class="subtitle">Телефони:</span><br>
-                    <a class="link" id="phone_1" href="tel: +380665483699">+38066-548-36-99</a>,<br>
-                    <a class="link" id="phone_2" href="tel: +380975483699">+38097-548-36-99</a>
-                    </span>
-                </div>
-                <div class="inner-contact" id="address">
-                    <span class="subtitle">Адреса:</span>
-                    <span>вул. Тюрінська, 96</span>
-                </div>
-                <div class="inner-contact" id="email">
-                    <span class="subtitle">Email:</span><br>
-                    <span id="main_doctor">Головний лікар Мєтіла Євген Дмитрович:
-                    <a class="link" href="mailto: polyclinic@ukr.net">polyclinic@ukr.net</a>
-                    </span><br>
-                    <span id="pers_dep">Відділ по роботі з персоналом:
-                        <a class="link" href="mailto: kh_pers@ukr.net">kh_pers_496@ukr.net</a>
-                    </span><br>
-                    <span id="ad_dep">Відділ реклами:
-                        <a class="link" href="mailto: kh_ad_496@ukr.net">kh_ad_496@ukr.net</a>
-                    </span><br>
-                    <span id="common_quest">Загальні питання:
-                        <a class="link" href="mailto: kh_cl_496@ukr.net">kh_cl_496@ukr.net</a>
-                    </span>
-                </div>
+        <div class="form-wrapper">
+            <div class="form-container">
+                <div class="title-block">Реєстрація</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="inner-box" id="patient-firstname">
+                            <label for="firstname" class="details">Ім'я <span style="color: red">*</span></label>
+                            <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="patient-lastname">
+                            <label for="lastname" class="details">Прізвище <span style="color: red">*</span></label>
+                            <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="family-doctor-block">
+                            <label for="family-doctor" class="details">Сімейний лікар</label><br>
+                            <span id="family-doctor">не визначено</span>
+                        </div>
+                        <div class="inner-box" id="phone-number">
+                            <label for="number" class="details">Номер телефону <span style="color: red">*</span></label>
+                            <input class="textholder" id="number" type="text" placeholder="Введіть номер телефону"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="health-complaint">
+                            <label for="complaint" class="details">Скарги на здоров'я <span style="color: red">*</span></label>
+                            <textarea class="textholder" id="complaint"
+                                      placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Записатися">
+                    </div>
+                </form>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.724782613777!2d36.29115571589929!3d49.99776912775927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0a8db6a8ead%3A0x79e80c7b9c345863!2z0YPQuy4g0KLRjtGA0LjQvdGB0LrQsNGPLCA5Niwg0KXQsNGA0YzQutC-0LIsINCl0LDRgNGM0LrQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDYxMDAw!5e0!3m2!1sru!2sua!4v1666687058008!5m2!1sru!2sua"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
-   <footer>
+    <footer>
         <div class="footer-content">
             <h3>Харківська районна клініка</h3>
             <p>Комунальне некомерційне підприємство "Міська поліклініка № 496" Харківської міської ради</p>
@@ -138,7 +139,7 @@
         </div>
     </footer>
 </div>
-<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
 <script src="../js/header.js"></script>
+<script src="../js/form.js"></script>
 </body>
 </html>
