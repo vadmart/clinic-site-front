@@ -12,7 +12,7 @@ window.addEventListener("resize", function (event) {
 })
 
 function mobMenu() {
-    if (window.screen.width < 768) {
+    if (window.screen.width <= 768) {
         console.log(mobileMenu);
         menu.style.display = "none";
         mobileMenu.style.display = "flex";

@@ -35,7 +35,7 @@ html {
     font-size: 20px;
 }
 
-.location-contacts {
+.contacts-container {
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
@@ -43,25 +43,26 @@ html {
 }
 
 .contacts .subtitle {
+    display: inline;
     margin: 0;
-    font-size: 1.6rem;
     font-weight: bold;
     color: rgba(80, 170, 170, 1);
 }
 
-.location-contacts .contacts {
-    display: grid;
-}
-
-.location-contacts .inner-contact {
-    line-height: 1.3em;
-}
-
-.location-contacts .inner-contact * {
+.contacts .subtitle,
+.contacts .subtitle-text {
     font-size: 1.3rem;
 }
 
-.location-contacts .inner-contact .link {
+.contacts-container .contacts {
+    display: grid;
+}
+
+.contacts-container .inner-contact {
+    line-height: 1.3em;
+}
+
+.contacts-container .inner-contact .link {
     text-decoration: none;
     color: #4299E9;
     font-weight: 500;
@@ -554,6 +555,7 @@ main {
     grid-template-areas:  "name ln"
                           "family family"
                           "num num"
+                          "reg reg"
                           "complaint-desc complaint-desc";
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -579,6 +581,10 @@ form .user-details > #phone-number {
 form .user-details > #health-complaint {
     grid-area: complaint-desc;
     display: block;
+}
+
+form .user-details > #record-date-block {
+    grid-area: reg;
 }
 
 select {
@@ -658,6 +664,11 @@ form .user-details .inner-box {
     color: #999;
     font-size: 1.4rem;
     font-style: italic;
+}
+
+.user-details .inner-box input[type=date] {
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .user-details .inner-box .textholder {
@@ -861,6 +872,16 @@ footer .socials {
 }
 
 @media screen and (max-width: 1300px) {
+    .contacts .subtitle,
+    .contacts .subtitle-text {
+        font-size: 1.1rem;
+    }
+
+    .contacts-container iframe {
+        width: 500px;
+        height: 375px;
+    }
+
     .brief-info .about-services h2 {
         font-size: 2rem;
     }
@@ -923,6 +944,16 @@ footer .socials {
 }
 
 @media screen and (max-width: 932px) {
+    .contacts .subtitle,
+    .contacts .subtitle-text {
+        font-size: 0.9rem;
+    }
+
+    .contacts-container iframe {
+        width: 400px;
+        height: 300px;
+    }
+
     .menu-item {
         padding: 0 10px;
     }
@@ -947,9 +978,40 @@ footer .socials {
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+    .contacts-container {
+        width: 100%;
+    }
+
+    .contacts-container .contacts {
+        width: 60%;
+        margin: 0 auto;
+        grid-row-gap: 15px;
+    }
+
+    .contacts-container iframe {
+        width: 100%;
+    }
+
+    .contacts .subtitle,
+    .contacts .subtitle-text {
+        font-size: 1.2rem;
+    }
+
+    .contacts iframe {
+        width: 100%;
+    }
+
+    .contacts-container {
+        flex-direction: column;
+    }
+
+    .contacts-container iframe {
+        margin: 40px 0 0 0;
+    }
+
     main {
-        margin: 40px 0;
+        margin: 4vh 0;
     }
 
     .doctors {
@@ -1020,4 +1082,25 @@ footer .socials {
     .title-box h2 {
         font-size: 1.2rem;
     }
+}
+
+.what-makes-us-special-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.what-makes-us-special-article {
+    background-color: #DDD;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.what-makes-us-special-article img {
+    height: 50px;
+    width: 50px;
 }

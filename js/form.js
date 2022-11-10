@@ -7,6 +7,13 @@ const patient_doctor = {
 const name_field = document.getElementById("firstname");
 const lastname_field = document.getElementById("lastname");
 const family_doctor = document.getElementById("family-doctor");
+const input_date = document.getElementById("record-date");
+console.log(Date.now());
+input_date.value = Date.now();
+
+function getDate(date) {
+    return `${date.g}`
+}
 
 var name = "";
 var lastname = "";
