@@ -35,39 +35,6 @@ html {
     font-size: 20px;
 }
 
-.contacts-container {
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
-    width: 65%;
-}
-
-.contacts .subtitle {
-    display: inline;
-    margin: 0;
-    font-weight: bold;
-    color: rgba(80, 170, 170, 1);
-}
-
-.contacts .subtitle,
-.contacts .subtitle-text {
-    font-size: 1.3rem;
-}
-
-.contacts-container .contacts {
-    display: grid;
-}
-
-.contacts-container .inner-contact {
-    line-height: 1.3em;
-}
-
-.contacts-container .inner-contact .link {
-    text-decoration: none;
-    color: #4299E9;
-    font-weight: 500;
-}
-
 html, body {
     height: 100%;
     background-size: cover;
@@ -453,66 +420,6 @@ main {
     font-size: 1.2rem;
     font-family: "Inter", sans-serif;
     background-color: rgba(0, 0, 0, 0);
-}
-
-.table-wrapper {
-    display: grid;
-    justify-items: center;
-    row-gap: 40px;
-    min-width: 768px;
-}
-
-.table-block {
-    display: grid;
-    row-gap: 40px;
-    margin: 0 auto;
-    position: relative;
-    overflow: auto;
-    min-width: 768px;
-}
-
-.table-wrapper .working-table {
-    font-family: "Arial", sans-serif;
-    font-weight: lighter;
-    border-collapse: collapse;
-    min-width: 768px;
-    width: 100%;
-}
-
-.working-table .table-title {
-    font-size: 1.6rem;
-    padding-bottom: 20px;
-}
-
-.working-table thead,
-.working-table tbody {
-    background-color: rgb(255, 255, 255, .7);
-}
-
-.working-table thead th {
-    padding: 10px 0;
-}
-
-.table-wrapper .working-table,
-.table-wrapper .working-table tr {
-    border: solid 1px rgb(100, 100, 100, 0.5);
-}
-
-.working-table .schedule-name {
-    padding: 20px;
-}
-
-.working-table .schedule-info {
-    border-left: solid 2px rgba(108, 192, 192, 1);
-    padding: 4px;
-}
-
-.working-table td {
-    width: 190px;
-    height: 80px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 700;
 }
 
 .form-wrapper {
