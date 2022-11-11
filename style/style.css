@@ -15,26 +15,6 @@ html {
     flex-direction: column;
 }
 
-.vacancy-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.vacancy {
-    display: flex;
-    width: 60%;
-    justify-content: space-between;
-}
-
-.vacancy img {
-    width: 600px;
-    height: 400px;
-}
-
-.vacancy-info {
-    font-size: 20px;
-}
-
 html, body {
     height: 100%;
     background-size: cover;
@@ -167,7 +147,7 @@ html, body {
 }
 
 main {
-    margin: 80px 0;
+    margin: 60px 0;
     flex: 1 1 auto;
 }
 
@@ -743,6 +723,10 @@ footer .socials {
 @media screen and (max-width: 768px) {
     main {
         margin: 4vh 0;
+    }
+
+    .title-box {
+        margin: 20px 0;
     }
 
     .doctors {

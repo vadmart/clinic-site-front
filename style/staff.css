@@ -100,3 +100,66 @@
     font-family: "Inter", sans-serif;
     background-color: rgba(0, 0, 0, 0);
 }
+
+@media screen and (max-width: 1300px) {
+    .full-description .description-header {
+        font-size: 1.2rem;
+    }
+
+    .description-block * {
+        font-size: 1rem;
+    }
+
+    .description {
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .full-description .description-header {
+        font-size: 1rem;
+    }
+
+    .block-doctor {
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .doctors {
+        grid-template-columns: 1fr;
+        grid-row-gap: 15px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .description-block .doctor-btn {
+        position: relative;
+    }
+
+    .full-description .description-header {
+        font-size: 1.2rem;
+    }
+
+    .block-doctor {
+        width: calc(192px + 192 * (100vw / 768));
+        margin: 0 auto;
+    }
+
+    .description-block * {
+        font-size: 0.8rem;
+    }
+
+    .doctor-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .doctor-info .feedback_btn {
+        position: relative;
+        text-align: center;
+        margin: 10px 0;
+    }
+}
