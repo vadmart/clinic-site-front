@@ -57,3 +57,38 @@
     font-size: 1.1rem;
     font-weight: 700;
 }
+
+@media screen and (max-width: 1031px) {
+    .working-table td {
+        font-size: 0.9rem;
+        width: 160px;
+        height: 60px;
+    }
+
+    .working-table .table-title {
+        font-size: 1.4rem;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 932px) {
+    .working-table td {
+        font-size: 0.8rem;
+        width: 130px;
+        height: 50px;
+    }
+
+    .working-table .table-title {
+        font-size: 1rem;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .working-table {
+        max-width: 100%;
+        overflow-x: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
