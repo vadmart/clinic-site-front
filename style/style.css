@@ -794,10 +794,12 @@ footer .socials {
 
 .what-makes-us-special-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    font-size: 1.2rem;
+    font-family: "Roboto", sans-serif;
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -808,7 +810,11 @@ footer .socials {
     border-radius: 15px;
 }
 
+.what-makes-us-special-article > * {
+    margin: 15px 0;
+}
+
 .what-makes-us-special-article img {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    margin: 0;
 }
