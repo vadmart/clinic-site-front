@@ -23,11 +23,13 @@ html, body {
     background-repeat: no-repeat;
 }
 
-.disabled {
+.btn.disabled,
+.inner-btn.disabled {
     pointer-events: none;
     cursor: default;
-    color: black !important;
+    color: rgb(100, 100, 100) !important;
 }
+
 
 .clinic-head {
     background-color: rgba(80, 170, 170, 1);
@@ -103,7 +105,11 @@ html, body {
     color: rgb(255, 255, 255, .7);
     border-radius: 5px;
     cursor: pointer;
-    transition: all 100ms;
+    transition: color 100ms;
+}
+
+.menu-item .btn:hover {
+    color: rgb(255, 255, 255, 1);
 }
 
 .menu-item a img {
@@ -121,10 +127,6 @@ html, body {
     transition: width .35s;
 }
 
-.menu-item .btn:hover {
-    color: rgb(255, 255, 255, 1);
-}
-
 .menu-item .btn:hover:after {
     width: 100%;
 }
@@ -136,7 +138,7 @@ html, body {
     left: 0;
     position: absolute;
     z-index: 1;
-    background-color: rgb(230, 230, 230);
+    background-color: rgba(80, 150, 150, 1);
 }
 
 .menu .dropdown-content .inner-btn {
@@ -145,11 +147,11 @@ html, body {
     padding: 10px 20px;
     text-decoration: none;
     font-size: 1.3rem;
-    color: black;
+    color: rgba(255, 255, 255, .7);
 }
 
-.inner-btn:hover {
-    color: #6B6B6B;
+.menu .dropdown-content .inner-btn:hover {
+    color: rgba(255, 255, 255, 1);
 }
 
 .dropdown:hover .dropdown-content {
@@ -157,7 +159,7 @@ html, body {
 }
 
 main {
-    margin: 120px 0;
+    margin: 140px 0;
     flex: 1 1 auto;
 }
 
@@ -283,6 +285,14 @@ main {
     font-family: 'Satisfy', cursive;
 }
 
+.title-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 25px 20px;
+    margin-bottom: 25px;
+}
+
 .title-box h2 {
     text-transform: uppercase;
     position: absolute;
@@ -292,14 +302,6 @@ main {
     white-space: normal;
     padding: 0 5px;
     color: rgba(80, 170, 170, 1);
-}
-
-.title-box {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    padding: 25px 20px;
-    margin: 50px 0;
 }
 
 .title-box:before {
@@ -312,94 +314,6 @@ main {
     position: absolute;
 }
 
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.form-container {
-    max-width: 700px;
-    width: 100%;
-    background: rgb(255, 255, 255, .8);
-    display: grid;
-    grid-row-gap: 15px;
-    padding: 25px 30px;
-    border-radius: 10px;
-}
-
-.form-container .title-block {
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-}
-
-.form-container .title-block:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background: linear-gradient(135deg, #0697D6, #97E7E7);
-}
-
-
-.form-container form .user-details {
-    display: grid;
-    width: 100%;
-    grid-template-areas:  "name ln"
-                          "family family"
-                          "num num"
-                          "reg reg"
-                          "complaint-desc complaint-desc";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 30px;
-}
-
-form .user-details > #patient-firstname {
-    grid-area: name;
-}
-
-form .user-details > #patient-lastname {
-    grid-area: ln;
-}
-
-form .user-details > #family-doctor-block {
-    grid-area: family;
-}
-
-form .user-details > #phone-number {
-    grid-area: num;
-}
-
-form .user-details > #health-complaint {
-    grid-area: complaint-desc;
-    display: block;
-}
-
-form .user-details > #record-date-block {
-    grid-area: reg;
-}
-
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-    background: inherit;
-    background-image: none;
-    flex: 1;
-    padding: 0 .5em;
-    color: #000;
-    cursor: pointer;
-    font-size: 1em;
-}
 
 br.show-for-mobile {
     content: '';
@@ -434,166 +348,6 @@ select:focus .select {
 
 .select:hover::after {
     color: rgba(68, 120, 242, 1);
-}
-
-form .user-details .inner-box {
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.user-details .inner-box .details {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.user-details .details {
-    font-size: 1.4rem;
-}
-
-.user-details .inner-box textarea {
-    width: 100%;
-    height: 300px !important;
-    font-size: 15px;
-    resize: none;
-}
-
-.user-details .inner-box span[id=family-doctor] {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #999;
-    font-size: 1.4rem;
-    font-style: italic;
-}
-
-.user-details .inner-box input[type=date] {
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-.user-details .inner-box .textholder {
-    height: 45px;
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-}
-
-.user-details .inner-box .textholder:focus,
-.user-details .inner-box input:valid {
-    border-color: rgba(68, 120, 242, 1);
-}
-
-form .button {
-    height: 50px;
-}
-
-form .button input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: #fff;
-    background: linear-gradient(135deg, #0697D6, #97E7E7);
-    border: none;
-    border-radius: 20px;
-    font-size: 18px;
-    letter-spacing: 1px;
-    font-weight: 500;
-}
-
-form .button input:hover {
-    background: linear-gradient(-135deg, #0697D6, #97E7E7);
-    color: #eee;
-}
-
-.user-details #health-complaint textarea {
-    outline: none;
-}
-
-.user-details #health-complaint textarea:focus {
-    outline: #9b59b6;
-}
-
-.doctor-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.doctor-info, .reviews .review {
-    background-color: rgb(255, 255, 255, 0.5);
-    backdrop-filter: blur(13px);
-}
-
-.doctor-info {
-    display: flex;
-    border: solid 2px #000000;
-    padding: 10px 0;
-    border-radius: 10px;
-    font-size: 1rem;
-}
-
-.doctor-info img {
-    width: 210px;
-    height: 300px;
-}
-
-.doctor-info > * {
-    margin: 0 20px;
-}
-
-.doctor-info .doctor-description {
-    font-size: 25px;
-    display: grid;
-    grid-template-rows: 2fr 2fr 2fr;
-    position: relative;
-}
-
-.doctor-description .profession {
-    font-style: italic;
-}
-
-.doctor-description .category-info {
-    font-weight: 800;
-}
-
-.doctor-info .feedback_btn {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #0CC5EE;
-    position: absolute;
-    bottom: 0;
-    padding: 10px 20px;
-    border-radius: 20px;
-}
-
-.doctor-info .feedback_btn:hover {
-    background-color: #1975BB;
-}
-
-.doctor-info .doctor-description .prof-info {
-    display: grid;
-    grid-row-gap: 10px;
-}
-
-.reviews .review {
-    padding: 5px 10px 30px 10px;
-    max-width: 60%;
-    border: solid 1px #000000;
-    border-radius: 10px;
-}
-
-.reviews .review > * {
-    margin: 10px 0;
-}
-
-.review .account > * {
-    font-size: 20px;
-    font-weight: 700;
 }
 
 footer {
@@ -663,15 +417,7 @@ footer .socials {
     width: 100vw;
 }
 
-.reviews {
-    display: grid;
-    justify-items: center;
-    row-gap: 20px;
-}
 
-.reviews * {
-    font-size: 20px;
-}
 
 .what-makes-us-special-grid {
     display: grid;
@@ -754,6 +500,11 @@ footer .socials {
 }
 
 @media screen and (max-width: 768px) {
+
+    .about-clinic .description {
+        width: 95%;
+    }
+
     .clinic-head .site-name {
         font-size: calc(1rem + 0.3 * (100vw / 768));
     }
@@ -780,18 +531,6 @@ footer .socials {
 
     .menu-item .btn {
         font-size: calc(1rem + 0.1 * (100vw / 768));
-    }
-
-    .doctor-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .doctor-info .feedback_btn {
-        position: relative;
-        text-align: center;
-        margin: 10px 0;
     }
 }
 

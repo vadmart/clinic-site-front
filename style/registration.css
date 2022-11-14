@@ -1,0 +1,190 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-container {
+    max-width: 700px;
+    width: 100%;
+    background: rgba(100, 244, 255, 0.5);
+    display: grid;
+    grid-row-gap: 15px;
+    padding: 25px 30px;
+    border-radius: 10px;
+}
+
+.form-container .title-block {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.form-container .title-block:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(135deg, #0697D6, #97E7E7);
+}
+
+
+.form-container form .user-details {
+    display: grid;
+    width: 100%;
+    grid-template-areas:  "name ln"
+                          "address address"
+                          "family family"
+                          "num num"
+                          "reg reg"
+                          "complaint-desc complaint-desc";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+}
+
+form .user-details > #patient-firstname {
+    grid-area: name;
+}
+
+form .user-details > #patient-lastname {
+    grid-area: ln;
+}
+
+form .user-details > #patient-address {
+    grid-area: address;
+}
+
+form .user-details > #family-doctor-block {
+    grid-area: family;
+}
+
+form .user-details > #phone-number {
+    grid-area: num;
+}
+
+form .user-details > #health-complaint {
+    grid-area: complaint-desc;
+    display: block;
+}
+
+form .user-details > #record-date-block {
+    grid-area: reg;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: inherit;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color: #000;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form .user-details .inner-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.user-details .inner-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .details {
+    font-size: 1.4rem;
+}
+
+.user-details .inner-box textarea {
+    width: 100%;
+    height: 300px !important;
+    font-size: 15px;
+    resize: none;
+}
+
+.user-details .inner-box span[id=family-doctor] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.user-details .inner-box input[type=date] {
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.user-details .inner-box .textholder {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .inner-box .textholder:focus,
+.user-details .inner-box input:valid {
+    border-color: rgba(68, 120, 242, 1);
+}
+
+form .button {
+    height: 50px;
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(135deg, #0697D6, #97E7E7);
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+form .button input:hover {
+    background: linear-gradient(-135deg, #0697D6, #97E7E7);
+    color: #eee;
+}
+
+.user-details #health-complaint textarea {
+    outline: none;
+}
+
+.user-details #health-complaint textarea:focus {
+    outline: #9b59b6;
+}
+
+@media screen and (max-width: 425px) {
+    .form-container .user-details {
+        grid-template-areas: "name"
+                             "ln"
+                             "address"
+                             "family"
+                             "num"
+                             "reg"
+                             "complaint-desc" !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+    }
+}

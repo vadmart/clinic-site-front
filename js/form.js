@@ -1,43 +1,34 @@
-const patient_doctor = {
-    "Мартов Вадим": "Тезер Аліна Олександрівна",
-    "Раптовий Лев": "Лозовий Павло Викторович"
-}
+const family_doctors_info = {
+  "рибалка 21": {
+    "лікар": "Тезер Аліна Олександрівна",
+    "вільні-дати-і-часи": [
+      "2022-11-15T16:45",
+      "2022-11-16T12:10"
+    ]
+  },
+  "Раптовий Лев": "Лозовий Павло Викторович"
+};
 
 
-const name_field = document.getElementById("firstname");
-const lastname_field = document.getElementById("lastname");
-const family_doctor = document.getElementById("family-doctor");
-const input_date = document.getElementById("record-date");
-console.log(Date.now());
-input_date.value = Date.now();
-
-function getDate(date) {
-    return `${date.g}`
-}
-
-var name = "";
-var lastname = "";
+const address_field = document.getElementById("address");
+const family_doctor_label = document.getElementById("family-doctor");
+const date_input = document.getElementById("record-date");
 
 
-name_field.addEventListener("change", (e) => {
-    name = name_field.value;
-    changeText();
+address_field.addEventListener("change", function (e) {
+    if (family_doctors_info[address_field.value.toLowerCase()]) {
+        family_doctor_label.innerText = family_doctors_info[address_field.value.toLowerCase()]["лікар"];
+        family_doctor_label.style.fontStyle = "normal";
+        family_doctor_label.style.color = "black";
+        setDate(family_doctors_info);
+    } else {
+        family_doctor_label.innerText = "не визначено";
+        family_doctor_label.style.fontStyle = "italic";
+        family_doctor_label.style.color = "#999";
+    }
 })
 
-lastname_field.addEventListener("change", (e) => {
-    lastname = lastname_field.value;
-    changeText();
-})
-
-function changeText() {
-    if (name.length > 0 && lastname.length > 0 && typeof patient_doctor[lastname + " " + name] === "string") {
-        family_doctor.innerText = patient_doctor[lastname + " " + name];
-        family_doctor.style.color = "#000";
-        family_doctor.style.fontStyle = "inherit";
-    }
-    else {
-        family_doctor.innerText = "не визначено";
-        family_doctor.style.color = "";
-        family_doctor.style.fontStyle = "";
-    }
+function setDate(obj) {
+    var workDatetimes = obj[address_field.value.toLowerCase()]["вільні-дати-і-часи"].sort();
+    date_input.value = workDatetimes[0];
 }
