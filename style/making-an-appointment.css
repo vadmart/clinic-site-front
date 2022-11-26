@@ -6,7 +6,7 @@
 }
 
 .form-container {
-    max-width: 700px;
+    max-width: 900px;
     width: 100%;
     background: rgba(100, 244, 255, 0.5);
     display: grid;
@@ -35,14 +35,14 @@
 .form-container form .user-details {
     display: grid;
     width: 100%;
-    grid-template-areas:  "name ln"
-                          "address address"
-                          "family family"
-                          "num num"
-                          "reg reg"
-                          "complaint-desc complaint-desc";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "name ln pat"
+                         "street house num"
+                          "family family family"
+                          "date date date"
+                          "tm tm tm"
+                          "complaint-desc complaint-desc complaint-desc";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 30px;
 }
 
@@ -54,8 +54,16 @@ form .user-details > #patient-lastname {
     grid-area: ln;
 }
 
-form .user-details > #patient-address {
-    grid-area: address;
+form .user-details > #patient-patronymic {
+    grid-area: pat;
+}
+
+form .user-details > #patient-street {
+    grid-area: street;
+}
+
+form .user-details > #patient-house-number {
+    grid-area: house
 }
 
 form .user-details > #family-doctor-block {
@@ -68,11 +76,14 @@ form .user-details > #phone-number {
 
 form .user-details > #health-complaint {
     grid-area: complaint-desc;
-    display: block;
 }
 
 form .user-details > #record-date-block {
-    grid-area: reg;
+    grid-area: date;
+}
+
+form .user-details > #record-time-block {
+    grid-area: tm;
 }
 
 select {
@@ -97,6 +108,20 @@ form .user-details .inner-box {
     width: 100%;
 }
 
+.user-details .inner-box .unknown-block {
+    font-style: italic;
+    font-size: 22px;
+    color: #888;
+    text-align: center;
+}
+
+.user-details .inner-box .doctor-block {
+    font-style: normal;
+    font-size: 22px;
+    color: #000;
+    text-align: center;
+}
+
 .user-details .inner-box .details {
     display: block;
     font-weight: 500;
@@ -112,15 +137,6 @@ form .user-details .inner-box {
     height: 300px !important;
     font-size: 15px;
     resize: none;
-}
-
-.user-details .inner-box span[id=family-doctor] {
-    display: block;
-    width: 100%;
-    text-align: center;
-    color: #999;
-    font-size: 1.4rem;
-    font-style: italic;
 }
 
 .user-details .inner-box input[type=date] {
@@ -140,6 +156,26 @@ form .user-details .inner-box {
     transition: all 0.3s ease;
 }
 
+.user-details .inner-box .info-block {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 5px;
+    height: 50px;
+}
+
+.inner-box .info-block input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+}
+
+.inner-box .info-block input#active-date,
+.inner-box .info-block input#active-time {
+    background-color: #1975BB;
+    border-color: #0CC5BF;
+    color: #fff;
+}
+
 .user-details .inner-box .textholder:focus,
 .user-details .inner-box input:valid {
     border-color: rgba(68, 120, 242, 1);
@@ -149,12 +185,14 @@ form .button {
     height: 50px;
 }
 
-form .button input {
-    height: 100%;
-    width: 100%;
+form .buttons {
+    display: flex;
+}
+
+form .button {
+    width: 50%;
+    margin: 0 12px;
     outline: none;
-    color: #fff;
-    background: linear-gradient(135deg, #0697D6, #97E7E7);
     border: none;
     border-radius: 20px;
     font-size: 18px;
@@ -162,9 +200,19 @@ form .button input {
     font-weight: 500;
 }
 
-form .button input:hover {
-    background: linear-gradient(-135deg, #0697D6, #97E7E7);
+.button#record {
+    color: #fff;
+    background: linear-gradient(135deg, #0697D6, #97E7E7);
+}
+
+.button#record:hover {
     color: #eee;
+    background: linear-gradient(-135deg, #0697D6, #97E7E7);
+}
+
+.button#clear:hover {
+    color: #eee;
+    background-color: #BBBBBB;
 }
 
 .user-details #health-complaint textarea {
@@ -179,10 +227,12 @@ form .button input:hover {
     .form-container .user-details {
         grid-template-areas: "name"
                              "ln"
-                             "address"
+                             "street"
+                             "house"
                              "family"
                              "num"
-                             "reg"
+                             "date"
+                             "tm"
                              "complaint-desc" !important;
         grid-template-columns: 1fr !important;
         grid-template-rows: 1fr !important;

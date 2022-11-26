@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Реєстрація на прийом</title>
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/registration.css">
+    <link rel="stylesheet" href="../style/making-an-appointment.css">
 </head>
 <body>
 <div class="wrapper">
@@ -35,7 +35,7 @@
                 <a class="btn" href="staff.html">Наші лікарі</a>
             </li>
             <li class="menu-item">
-                <a class="btn disabled" href="registration.html">Реєстрація</a>
+                <a class="btn disabled" href="making-an-appointment.html">Запис на прийом</a>
             </li>
             <li class="menu-item">
                 <a class="btn" href="schedule-work.html">Графік роботи</a>
@@ -70,7 +70,7 @@
                     <a class="btn" href="staff.html">Наші лікарі</a>
                 </li>
                 <li class="menu-item">
-                    <a class="btn disabled" href="registration.html">Реєстрація</a>
+                    <a class="btn disabled" href="making-an-appointment.html">Запис на прийом</a>
                 </li>
                 <li class="menu-item">
                     <a class="btn" href="schedule-work.html">Графік роботи</a>
@@ -81,7 +81,7 @@
     <main>
         <div class="form-wrapper">
             <div class="form-container">
-                <div class="title-block">Реєстрація</div>
+                <div class="title-block">Запис на прийом</div>
                 <form action="#">
                     <div class="user-details">
                         <div class="inner-box" id="patient-firstname">
@@ -94,18 +94,43 @@
                             <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
                                    required>
                         </div>
-                        <div class="inner-box" id="patient-address">
-                            <label for="address" class="details">Вулиця та номер будинку проживання <span style="color: red">*</span></label>
-                            <input class="textholder" id="address" type="text" placeholder="Введіть вулицю та номер будинку проживання"
+                        <div class="inner-box" id="patient-patronymic">
+                            <label for="patronymic" class="details">По батькові <span style="color: red">*</span></label>
+                            <input class="textholder" id="patronymic" type="text" placeholder="Введіть по батькові"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="patient-street">
+                            <label for="street" class="details">Вулиця <span style="color: red">*</span></label>
+                            <input class="textholder" id="street" type="text"
+                                   placeholder="Введіть вулицю"
+                                   required>
+                        </div>
+                        <div class="inner-box" id="patient-house-number">
+                            <label for="house-number" class="details">Номер будинку <span
+                                    style="color: red">*</span></label>
+                            <input type="number" class="textholder" id="house-number"
+                                   placeholder="Введіть номер будинку"
                                    required>
                         </div>
                         <div class="inner-box" id="family-doctor-block">
                             <label for="family-doctor" class="details">Сімейний лікар</label><br>
-                            <span id="family-doctor">не визначено</span>
+                            <div class="info-block" id="family-doctor">
+                                <span class="unknown-block">не визначено</span>
+                            </div>
                         </div>
                         <div class="inner-box" id="record-date-block">
-                            <label for="record-date" class="details">Дата та час</label><br>
-                            <input id="record-date" type="datetime-local">
+                            <label class="details">Дата <span
+                                    style="color: red">*</span></label><br>
+                            <div class="info-block" id="date">
+                                <span class="unknown-block">не визначено</span>
+                            </div>
+                        </div>
+                        <div class="inner-box" id="record-time-block">
+                            <label class="details">Час <span
+                                    style="color: red">*</span></label><br>
+                            <div class="info-block" id="time">
+                                <span class="unknown-block">не визначено</span>
+                            </div>
                         </div>
                         <div class="inner-box" id="phone-number">
                             <label for="number" class="details">Номер телефону <span style="color: red">*</span></label>
@@ -118,8 +143,9 @@
                                       placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
                         </div>
                     </div>
-                    <div class="button">
-                        <input type="submit" value="Записатися">
+                    <div class="buttons">
+                        <input class="button" id="record" type="submit" value="Записатися">
+                        <button class="button" id="clear">Очистити все</button>
                     </div>
                 </form>
             </div>
