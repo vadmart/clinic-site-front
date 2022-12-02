@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Реєстрація на прийом</title>
+    <title>Запис на прийом</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/making-an-appointment.css">
 </head>
@@ -84,23 +84,24 @@
                 <div class="title-block">Запис на прийом</div>
                 <form action="#">
                     <div class="user-details">
-                        <div class="inner-box" id="patient-firstname">
-                            <label for="firstname" class="details">Ім'я <span style="color: red">*</span></label>
-                            <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
-                                   required>
-                        </div>
                         <div class="inner-box" id="patient-lastname">
                             <label for="lastname" class="details">Прізвище <span style="color: red">*</span></label>
                             <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
                                    required>
                         </div>
+                        <div class="inner-box" id="patient-firstname">
+                            <label for="firstname" class="details">Ім'я <span style="color: red">*</span></label>
+                            <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
+                                   required>
+                        </div>
                         <div class="inner-box" id="patient-patronymic">
-                            <label for="patronymic" class="details">По батькові <span style="color: red">*</span></label>
+                            <label for="patronymic" class="details">По батькові <span
+                                    style="color: red">*</span></label>
                             <input class="textholder" id="patronymic" type="text" placeholder="Введіть по батькові"
                                    required>
                         </div>
                         <div class="inner-box" id="patient-street">
-                            <label for="street" class="details">Вулиця <span style="color: red">*</span></label>
+                            <label for="street" class="details">Назва вулиці <span style="color: red">*</span></label>
                             <input class="textholder" id="street" type="text"
                                    placeholder="Введіть вулицю"
                                    required>
@@ -108,7 +109,7 @@
                         <div class="inner-box" id="patient-house-number">
                             <label for="house-number" class="details">Номер будинку <span
                                     style="color: red">*</span></label>
-                            <input type="number" class="textholder" id="house-number"
+                            <input type="text" class="textholder" id="house-number"
                                    placeholder="Введіть номер будинку"
                                    required>
                         </div>
@@ -150,6 +151,17 @@
                 </form>
             </div>
         </div>
+        <section id="modal-wrapper">
+            <div id="modal-window">
+                <div class="modal-info">
+                    <h3>Успіх</h3>
+                    <span>Дані прийняті до обробки. <br>Бажаємо скорішого одужання!</span>
+                </div>
+                <div class="modal-close-button">
+                    <button id="close-button">х</button>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="footer-content">
@@ -176,7 +188,8 @@
         </div>
     </footer>
 </div>
-<script src="../js/header.js"></script>
+<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
 <script src="../js/form.js"></script>
+<script src="../js/header.js"></script>
 </body>
 </html>
