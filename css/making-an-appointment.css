@@ -38,11 +38,11 @@
     display: grid;
     width: 100%;
     grid-template-areas: "ln name pat"
-                         "street house num"
-                          "family family family"
-                          "date date date"
-                          "tm tm tm"
-                          "complaint-desc complaint-desc complaint-desc";
+            "street house num"
+            "family family family"
+            "date date date"
+            "tm tm tm"
+            "complaint-desc complaint-desc complaint-desc";
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 30px;
@@ -88,23 +88,6 @@ form .user-details > #record-time-block {
     grid-area: tm;
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-    background: inherit;
-    background-image: none;
-    flex: 1;
-    padding: 0 .5em;
-    color: #000;
-    cursor: pointer;
-    font-size: 1em;
-}
-
 form .user-details .inner-box {
     margin-bottom: 15px;
     width: 100%;
@@ -137,7 +120,6 @@ form .user-details .inner-box {
 .user-details .inner-box textarea {
     width: 100%;
     height: 300px !important;
-    font-size: 15px;
     resize: none;
 }
 
@@ -187,7 +169,7 @@ form .button {
     height: 50px;
 }
 
-form .buttons {
+form #buttons {
     display: flex;
 }
 
@@ -225,22 +207,6 @@ form .button {
     outline: #9b59b6;
 }
 
-@media screen and (max-width: 425px) {
-    .form-container .user-details {
-        grid-template-areas: "name"
-                             "ln"
-                             "street"
-                             "house"
-                             "family"
-                             "num"
-                             "date"
-                             "tm"
-                             "complaint-desc" !important;
-        grid-template-columns: 1fr !important;
-        grid-template-rows: 1fr !important;
-    }
-}
-
 span.err-msg {
     color: red;
     font-size: 0.95rem;
@@ -268,8 +234,143 @@ div#modal-window > * {
     line-height: 40px;
 }
 
+.disable-block {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1500;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    font-family: "Roboto", sans-serif;
+    line-height: 30px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+.popup__content {
+    background-color: #ffffff;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+}
+
+.popup__title {
+    font-size: 1.6rem;
+    margin-bottom: 2em;
+}
+
+.popup__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
 @media screen and (max-width: 768px) {
+    .form-wrapper {
+        padding: 0;
+    }
+
     .form-container > * {
         font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .form-container .title-block {
+        font-size: 1.3rem;
+    }
+
+    .form-container .inner-box .details {
+        font-size: 1rem;
+    }
+
+    .user-details .inner-box .textholder {
+        font-size: 0.8rem;
+        height: 30px;
+    }
+
+    form .button,
+    .user-details .inner-box .info-block,
+    .inner-box .info-block input[type=button]{
+        height: 25px;
+        font-size: 0.8rem;
+        padding: 0;
+    }
+
+    .user-details .inner-box .unknown-block,
+    .user-details .inner-box .doctor-block{
+        font-size: 1rem;
+    }
+
+    .user-details textarea#complaint {
+        width: 100%;
+    }
+
+    .user-details .textholder {
+        font-size: 0.5rem;
+    }
+
+    .user-details .inner-box input[type=date] {
+        font-size: 0.5rem;
+        width: 100%;
+    }
+
+    .popup__content {
+        padding: 10px;
+    }
+
+    .popup__title {
+        font-size: 1rem;
+    }
+
+    .popup__text {
+        font-size: 0.8rem;
+    }
+
+    span.err-msg {
+        font-size: 0.75rem;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .form-container .user-details {
+        grid-template-areas: "ln"
+                             "name"
+                             "pat"
+                             "street"
+                             "house"
+                             "num"
+                             "family"
+                             "date"
+                             "tm"
+                             "complaint-desc" !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
     }
 }

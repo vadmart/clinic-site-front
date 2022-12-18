@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Запис на прийом</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/making-an-appointment.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/making-an-appointment.css">
 </head>
 <body>
 <div class="wrapper">
@@ -44,7 +44,7 @@
         <div class="mobile-menu">
             <div class="mobile-menu-btn-wrapper">
                 <button>
-                    <i class="fa-solid fa-bars"></i>
+                    <div class="mobile-menu__button"></div>
                 </button>
             </div>
             <ul class="mobile-menu-content">
@@ -85,30 +85,28 @@
                 <form action="#">
                     <div class="user-details">
                         <div class="inner-box" id="patient-lastname">
-                            <label for="lastname" class="details">Прізвище <span style="color: red">*</span></label>
+                            <label for="lastname" class="details">Прізвище</label>
                             <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
                                    required>
                         </div>
                         <div class="inner-box" id="patient-firstname">
-                            <label for="firstname" class="details">Ім'я <span style="color: red">*</span></label>
+                            <label for="firstname" class="details">Ім'я</label>
                             <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
                                    required>
                         </div>
                         <div class="inner-box" id="patient-patronymic">
-                            <label for="patronymic" class="details">По батькові <span
-                                    style="color: red">*</span></label>
+                            <label for="patronymic" class="details">По батькові</label>
                             <input class="textholder" id="patronymic" type="text" placeholder="Введіть по батькові"
                                    required>
                         </div>
                         <div class="inner-box" id="patient-street">
-                            <label for="street" class="details">Назва вулиці <span style="color: red">*</span></label>
+                            <label for="street" class="details">Назва вулиці</label>
                             <input class="textholder" id="street" type="text"
                                    placeholder="Введіть вулицю"
                                    required>
                         </div>
                         <div class="inner-box" id="patient-house-number">
-                            <label for="house-number" class="details">Номер будинку <span
-                                    style="color: red">*</span></label>
+                            <label for="house-number" class="details">Номер будинку</label>
                             <input type="text" class="textholder" id="house-number"
                                    placeholder="Введіть номер будинку"
                                    required>
@@ -120,48 +118,44 @@
                             </div>
                         </div>
                         <div class="inner-box" id="record-date-block">
-                            <label class="details">Дата <span
-                                    style="color: red">*</span></label><br>
+                            <label class="details">Дата </label><br>
                             <div class="info-block" id="date">
                                 <span class="unknown-block">не визначено</span>
                             </div>
                         </div>
                         <div class="inner-box" id="record-time-block">
-                            <label class="details">Час <span
-                                    style="color: red">*</span></label><br>
+                            <label class="details">Час</label><br>
                             <div class="info-block" id="time">
                                 <span class="unknown-block">не визначено</span>
                             </div>
                         </div>
                         <div class="inner-box" id="phone-number">
-                            <label for="number" class="details">Номер телефону <span style="color: red">*</span></label>
+                            <label for="number" class="details">Номер телефону</label>
                             <input class="textholder" id="number" type="text" placeholder="Введіть номер телефону"
                                    required>
                         </div>
                         <div class="inner-box" id="health-complaint">
-                            <label for="complaint" class="details">Скарги на здоров'я <span style="color: red">*</span></label>
+                            <label for="complaint" class="details">Скарги на здоров'я <small style="color: rgb(50, 200, 100)">(необов'язково)</small></label>
                             <textarea class="textholder" id="complaint"
                                       placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
                         </div>
                     </div>
-                    <div class="buttons">
+                    <div id="buttons">
                         <input class="button" id="record" type="submit" value="Записатися">
-                        <button class="button" id="clear">Очистити все</button>
+                        <input class="button" type="reset" value="Очистити все" id="clear">
                     </div>
                 </form>
             </div>
         </div>
-        <section id="modal-wrapper">
-            <div id="modal-window">
-                <div class="modal-info">
-                    <h3>Успіх</h3>
-                    <span>Дані прийняті до обробки. <br>Бажаємо скорішого одужання!</span>
-                </div>
-                <div class="modal-close-button">
-                    <button id="close-button">х</button>
+        <div id="popup" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#" class="popup__close">x</a>
+                    <div class="popup__title"></div>
+                    <div class="popup__text"></div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         <div class="footer-content">
@@ -189,7 +183,7 @@
     </footer>
 </div>
 <script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
-<script src="../js/form.js"></script>
 <script src="../js/header.js"></script>
+<script src="../js/form.js"></script>
 </body>
 </html>

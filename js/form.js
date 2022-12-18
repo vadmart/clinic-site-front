@@ -1,54 +1,42 @@
-class UserInfo {
-    constructor(lastName = "", firstName = "", patronymic = "", streetName = "", houseNumber = "", phoneNumber = "") {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.patronymic = patronymic;
-        this.streetName = streetName;
-        this.houseNumber = houseNumber;
-        this.phoneNumber = phoneNumber
-    }
+const URL = "http://localhost:63342/Regional clinic website/info.json";
 
-    equal(obj) {
-        return this.lastName == obj.lastName && this.firstName == obj.firstName && this.patronymic == obj.patronymic && this.streetName == obj.streetName && this.houseNumber == obj.houseNumber && this.phoneNumber == obj.phoneNumber;
-    }
-}
-
-const familyDoctorsInfo = {
-    "Тезер Аліна Іванівна": {
-        patients: [new UserInfo("Кефіров", "Олег", "Андрійович", "Чудова", "16Б", "+380661587452")],
-        workSchedule: {
-            "30.11": ["10:10", "12:30", "15:45", "17:00"],
-            "01.12": ["9:30", "14:30"]
+Object.compare = function (obj1, obj2) {
+    for (var el in obj1) {
+        if (obj1.hasOwnProperty(el) !== obj2.hasOwnProperty(el)) return false;
+        switch (typeof (obj1[el])) {
+            case 'object':
+                if (!Object.compare(obj1[el], obj2[el])) return false;
+                break;
+            case 'function':
+                if (typeof (obj2[el]) == 'undefined' || (el != 'compare' && obj1[el].toString() != obj2[el].toString())) return false;
+                break;
+            default:
+                if (obj1[el] != obj2[el]) return false;
         }
     }
+    for (var elem in obj2) {
+        if (typeof (obj1[elem]) == 'undefined') return false;
+    }
+    return true;
 }
 
-const form = document.querySelector(".form-container form");
-
-const formFields = {
+const necessaryFields = {
     firstname: document.getElementById("firstname"),
     lastname: document.getElementById("lastname"),
     patronymic: document.getElementById("patronymic"),
     streetName: document.getElementById("street"),
     houseNumber: document.getElementById("house-number"),
-    familyDoctor: document.getElementById("family-doctor"),
     phoneNumber: document.getElementById("number"),
-    date: document.getElementById("date"),
-    time: document.getElementById("time"),
-    complaint: document.getElementById("complaint")
 };
 
-// for (var field in formFields) {
-//     field.checkValidity();
-// }
+for (var elem in necessaryFields) {
+    necessaryFields[elem].addEventListener("change", checkInvalid);
+    necessaryFields[elem].addEventListener("change", (e) => makeRequest(e, URL));
+}
 
-formFields.firstname.addEventListener("change", showDoctor);
-formFields.lastname.addEventListener("change", showDoctor);
-formFields.patronymic.addEventListener("change", showDoctor);
-formFields.streetName.addEventListener("change", showDoctor);
-formFields.houseNumber.addEventListener("change", showDoctor);
-formFields.phoneNumber.addEventListener("change", showDoctor);
-formFields.complaint.addEventListener("change", checkInvalid);
+const familyDoctor = document.getElementById("family-doctor");
+const date = document.getElementById("date");
+const time = document.getElementById("time");
 
 const clear = document.getElementById("clear");
 clear.addEventListener("click", clearForm);
@@ -56,10 +44,81 @@ clear.addEventListener("click", clearForm);
 const submitButton = document.getElementById("record");
 submitButton.addEventListener("click", submitForm);
 
-function findDoctor(patient) {
-    for (let doctor in familyDoctorsInfo) {
-        for (let pat of familyDoctorsInfo[doctor].patients) {
-            if (pat.equal(patient)) {
+const complaint = document.getElementById("complaint");
+
+const plainText = document.createElement("span");
+
+const errSpan = document.createElement("span");
+errSpan.className = "err-msg";
+errSpan.innerText = "Поле не може бути порожнім";
+
+
+function makeRequest(event, url) {
+    var httpRequest = false;
+    if (window.XMLHttpRequest) {
+        httpRequest = new XMLHttpRequest();
+        if (httpRequest.overrideMimeType) {
+            httpRequest.overrideMimeType("text/xml");
+        }
+    } else if (window.ActiveXObject) {
+        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (!httpRequest) {
+        alert("Невозможно создать экземпляр класса XMLHTTP");
+        return false;
+    }
+    httpRequest.onreadystatechange = function () {
+        getInfo(event, httpRequest);
+    };
+    httpRequest.open("POST", url);
+    httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpRequest.send(null);
+}
+
+function getInfo(event, httpRequest) {
+    try {
+        if (httpRequest.readyState == 4) {
+            if (httpRequest.status == 200) {
+                showDoctor(event, JSON.parse(httpRequest.responseText));
+            } else {
+                alert("Із запитом виникла проблема");
+            }
+        }
+    } catch
+        (e) {
+        alert("Произошло исключение " + e.description);
+    }
+}
+
+function showDoctor(e, doctorData) {
+    clearFields(time, date, familyDoctor);
+    const patient = {
+        "lastName": necessaryFields.lastname.value,
+        "firstName": necessaryFields.firstname.value,
+        "patronymic": necessaryFields.patronymic.value,
+        "streetName": necessaryFields.streetName.value,
+        "houseNumber": necessaryFields.houseNumber.value,
+        "phoneNumber": necessaryFields.phoneNumber.value
+    };
+    const doctor = findDoctor(patient, doctorData);
+    if (doctor) {
+        plainText.innerText = doctor;
+        plainText.className = "doctor-block";
+        familyDoctor.appendChild(plainText);
+        showDateTime(doctorData[doctor]);
+    } else {
+        plainText.innerText = "не визначено";
+        plainText.className = "unknown-block";
+        familyDoctor.appendChild(plainText);
+        date.appendChild(plainText.cloneNode(true));
+        time.appendChild(plainText.cloneNode(true));
+    }
+}
+
+function findDoctor(patient, doctorData) {
+    for (var doctor in doctorData) {
+        for (var pat of doctorData[doctor]["patients"]) {
+            if (Object.compare(pat, patient)) {
                 return doctor;
             }
         }
@@ -67,43 +126,14 @@ function findDoctor(patient) {
     return null;
 }
 
-const errSpan = document.createElement("span");
-errSpan.className = "err-msg";
-errSpan.innerText = "Поле не може бути порожнім";
-
-function showDoctor(e) {
-    console.log(e.target.parentNode);
-    checkInvalid(e);
-    clearFields(formFields.time, formFields.date, formFields.familyDoctor);
-    const patient = new UserInfo(formFields.lastname.value,
-        formFields.firstname.value,
-        formFields.patronymic.value,
-        formFields.streetName.value,
-        formFields.houseNumber.value,
-        formFields.phoneNumber.value);
-    const doctor = findDoctor(patient);
-    const plainText = document.createElement("span");
-    if (doctor) {
-        plainText.innerText = doctor;
-        plainText.className = "doctor-block";
-        formFields.familyDoctor.appendChild(plainText);
-        showDateTime(doctor);
-    } else {
-        plainText.innerText = "не визначено";
-        plainText.className = "unknown-block";
-        formFields.familyDoctor.appendChild(plainText);
-        formFields.date.appendChild(plainText.cloneNode(true));
-        formFields.time.appendChild(plainText.cloneNode(true));
-    }
-
-}
-
 function checkInvalid(event) {
     if (!event.target.checkValidity() && !document.querySelector(`#${event.target.parentNode.id} .err-msg`)) {
         event.target.parentNode.append(errSpan.cloneNode(true));
+        return false;
     } else if (event.target.checkValidity() && document.querySelector(`#${event.target.parentNode.id} .err-msg`)) {
         event.target.parentNode.removeChild(document.querySelector(`#${event.target.parentNode.id} .err-msg`));
     }
+    return true;
 }
 
 function clearFields(...fields) {
@@ -114,31 +144,31 @@ function clearFields(...fields) {
     }
 }
 
-function showDateTime(doctor) {
-    const workDatetimeObj = familyDoctorsInfo[doctor].workSchedule;
-    for (var date in workDatetimeObj) {
+function showDateTime(doctorInfo) {
+    const workDatetimeObj = doctorInfo["workSchedule"];
+    for (var dt in workDatetimeObj) {
         // для кожної дати з об'єкта створюємо відповідну кнопку та додаємо у блок дат
         const dateBtn = document.createElement("input");
         dateBtn.type = "button";
-        dateBtn.value = date;
-        dateBtn.innerText = date;
+        dateBtn.value = dt;
+        dateBtn.innerText = dt;
         dateBtn.className = "date-button";
-        formFields.date.appendChild(dateBtn);
+        date.appendChild(dateBtn);
         dateBtn.addEventListener("click", showTime);
     }
 
     function showTime(e = null) {
-        clearFields(formFields.time);
+        clearFields(time);
         clearIds(document.getElementsByClassName(e.target.className));
         e.target.id = "active-date";
         // створюємо кнопки із часом та додаємо у блок часів
-        for (var time of workDatetimeObj[e.target.value]) {
+        for (var tm of workDatetimeObj[e.target.value]) {
             const timeBtn = document.createElement("input");
             timeBtn.type = "button";
-            timeBtn.value = time;
-            timeBtn.innerText = time;
+            timeBtn.value = tm;
+            timeBtn.innerText = tm;
             timeBtn.className = "time-button";
-            formFields.time.appendChild(timeBtn);
+            time.appendChild(timeBtn);
             timeBtn.addEventListener("click", function (e) {
                 clearIds(document.getElementsByClassName(e.target.className));
                 e.target.id = "active-time";
@@ -155,59 +185,60 @@ function showDateTime(doctor) {
 
 function submitForm(e) {
     e.preventDefault();
-    showModal();
-    const date = document.querySelector(`#date #active-date`).value.split(".").map((elem) => Number(elem));
-    const time = document.querySelector(`#time #active-time`).value.split(":").map((elem) => Number(elem));
-    console.log(date, time);
+    const form = document.querySelector(".form-container form");
+    const dateElem = document.querySelector(`#date #active-date`);
+    const timeElem = document.querySelector(`#time #active-time`);
+    if (form.checkValidity() && dateElem != null && timeElem != null) {
+        showModal();
+    } else {
+        showModal(false);
+        return
+    }
+    const dt = dateElem.value.split(".").map((elem) => Number(elem));
+    const tm = timeElem.value.split(":").map((elem) => Number(elem));
     const obj = JSON.stringify({
-        firstName: formFields.firstname.value,
-        lastName: formFields.lastname.value,
-        patronymic: formFields.patronymic.value,
-        streetName: formFields.streetName.value,
-        houseNumber: formFields.houseNumber.value,
-        familyDoctor: formFields.familyDoctor.innerText,
-        phoneNumber: formFields.phoneNumber.value,
-        dateTime: new Date(2022, date[1] - 1, date[0], time[0] + 2, time[1]),
-        complaint: document.getElementById("complaint").value
+        firstName: necessaryFields.firstname.value,
+        lastName: necessaryFields.lastname.value,
+        patronymic: necessaryFields.patronymic.value,
+        streetName: necessaryFields.streetName.value,
+        houseNumber: necessaryFields.houseNumber.value,
+        phoneNumber: necessaryFields.phoneNumber.value,
+        familyDoctor: familyDoctor.innerText,
+        dateTime: new Date(2022, dt[1] - 1, dt[0], tm[0] + 2, tm[1]),
+        complaint: complaint.value
     });
 
-    function showModal() {
-        const modal = document.getElementById("modal-wrapper");
-        const closeBtn = document.getElementById("close-button");
-        const currPos = window.scrollY;
-        modal.style.display = "flex";
-        modal.style.top = `calc(${currPos}px + 40vh)`;
-        window.addEventListener("scroll", disableScroll);
-        closeBtn.addEventListener("click", closeModal);
-
-        function closeModal() {
-            window.removeEventListener("scroll", disableScroll);
-            modal.style.display = "none";
+    function showModal(isValid = true) {
+        const popUp = document.getElementById("popup");
+        const popupTitle = document.querySelector(".popup__title");
+        const popupText = document.querySelector(".popup__text");
+        const modalCloseButton = document.querySelector(".popup__close");
+        if (!isValid) {
+            popupTitle.innerText = "Помилка";
+            popupTitle.style.color = "rgb(217, 36, 36)";
+            popupText.innerText = "Дані на сервер НЕ відправлені. Перевірте, будь-ласка, правильність введених полів та спробуйте ще";
+        } else {
+            popupTitle.innerText = "Успіх!";
+            popupTitle.style.color = "rgb(36, 217, 36)";
+            popupText.innerText = "Запис на прийом вже передано. Скорішого Вам одужання:)";
         }
+        popUp.classList.add("open");
+        modalCloseButton.addEventListener("click", closeModal)
 
-        function disableScroll() {
-            document.body.style.overflow = "hidden";
+        function closeModal(e) {
+            e.preventDefault();
+            popUp.classList.remove("open");
         }
     }
-
     console.log(obj);
 }
 
-function clearForm(e) {
-    // go through all inner-boxes
-    e.preventDefault();
-    for (var innerBox of document.getElementsByClassName("inner-box")) {
-        var lastElem = innerBox.lastElementChild;
-        console.log(lastElem);
-        if (lastElem.tagName == "INPUT" || lastElem.tagName == "TEXTAREA") {
-            lastElem.value = "";
-        }
-        showDoctor();
-    }
-    for (var label of unknownBlocks) {
-        label.innerText = "не визначено";
-        label.style.fontStyle = "italic";
-        label.style.color = "#999";
-    }
+function clearForm() {
+    clearFields(time, date, familyDoctor, complaint);
+    plainText.innerText = "не визначено";
+    plainText.className = "unknown-block";
+    familyDoctor.appendChild(plainText);
+    date.appendChild(plainText.cloneNode(true));
+    time.appendChild(plainText.cloneNode(true));
     window.scrollTo(0, 0);
 }

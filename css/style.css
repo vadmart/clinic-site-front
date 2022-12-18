@@ -63,6 +63,17 @@ html, body {
     flex-direction: column;
 }
 
+.mobile-menu__button {
+    background-repeat: no-repeat;
+    background-image: url("../icons/white-menu-button.png");
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-menu__button:active {
+    background-image: url("../icons/black-menu-button.png");
+}
+
 .mobile-menu-btn-wrapper {
     width: 100%;
     display: flex;
@@ -499,7 +510,7 @@ footer .socials {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
     .about-clinic .description {
         width: 95%;
