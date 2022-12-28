@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Запис на прийом</title>
+    <title>Успіх</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/making-an-appointment.css">
+    <link rel="stylesheet" href="../css/success_form.css">
 </head>
 <body>
 <div class="wrapper">
@@ -85,64 +84,11 @@
         </div>
     </header>
     <main>
-        <div class="form-wrapper">
-            <div class="form-container">
-                <div class="title-block">Запис на прийом</div>
-                <form action="#">
-                    <div class="user-details">
-                        <div class="inner-box" id="patient-lastname">
-                            <label for="lastname" class="details">Прізвище</label>
-                            <input class="textholder" id="lastname" type="text" placeholder="Введіть прізвище"
-                                   required>
-                        </div>
-                        <div class="inner-box" id="patient-firstname">
-                            <label for="firstname" class="details">Ім'я</label>
-                            <input class="textholder" id="firstname" type="text" placeholder="Введіть ім'я"
-                                   required>
-                        </div>
-                        <div class="inner-box" id="patient-contract">
-                            <label for="contract" class="details">Номер контракту із сімейним лікарем</label>
-                            <input class="textholder" id="contract" type="text" placeholder="Введіть номер контракту, що заключено із сімейним лікарем"
-                                   required>
-                        </div>
-                        <div class="inner-box" id="family-doctor-block">
-                            <label for="family-doctor" class="details">Сімейний лікар</label><br>
-                            <div class="info-block" id="family-doctor">
-                                <span class="unknown-block">не визначено</span>
-                            </div>
-                        </div>
-                        <div class="inner-box" id="record-date-block">
-                            <label class="details">Дата </label><br>
-                            <div class="info-block" id="date">
-                                <span class="unknown-block">не визначено</span>
-                            </div>
-                        </div>
-                        <div class="inner-box" id="record-time-block">
-                            <label class="details">Час</label><br>
-                            <div class="info-block" id="time">
-                                <span class="unknown-block">не визначено</span>
-                            </div>
-                        </div>
-                        <div class="inner-box" id="health-complaint">
-                            <label for="complaint" class="details">Скарги на здоров'я <small
-                                    style="color: rgb(50, 200, 100)">(необов'язково)</small></label>
-                            <textarea class="textholder" id="complaint"
-                                      placeholder="Опишіть недоліки Вашого здоров'я..."></textarea>
-                        </div>
-                    </div>
-                    <div id="buttons">
-                        <input class="button" id="record" type="submit" href="" value="Записатися">
-                        <input class="button" type="reset" value="Очистити все" id="clear">
-                    </div>
-                </form>
-            </div>
-        </div>
         <div id="popup" class="popup">
             <div class="popup__body">
                 <div class="popup__content">
-                    <a href="#" class="popup__close">x</a>
-                    <div class="popup__title"></div>
-                    <div class="popup__text"></div>
+                    <div class="popup__title">Успіх</div>
+                    <div class="popup__text">Дані відправлені на сервер. Можете повернутися на головну сторінку</div>
                 </div>
             </div>
         </div>
@@ -172,7 +118,5 @@
         </div>
     </footer>
 </div>
-<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
-<script src="../js/header.js"></script>
 </body>
 </html>

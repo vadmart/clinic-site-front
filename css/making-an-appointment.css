@@ -37,14 +37,14 @@
 .form-container form .user-details {
     display: grid;
     width: 100%;
-    grid-template-areas: "ln name pat"
-            "street house num"
-            "family family family"
-            "date date date"
-            "tm tm tm"
-            "complaint-desc complaint-desc complaint-desc";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "ln name"
+            "contract contract"
+            "family family"
+            "date date"
+            "tm tm"
+            "complaint-desc complaint-desc";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 30px;
 }
 
@@ -56,24 +56,12 @@ form .user-details > #patient-lastname {
     grid-area: ln;
 }
 
-form .user-details > #patient-patronymic {
-    grid-area: pat;
-}
-
-form .user-details > #patient-street {
-    grid-area: street;
-}
-
-form .user-details > #patient-house-number {
-    grid-area: house
+form .user-details > #patient-contract {
+    grid-area: contract;
 }
 
 form .user-details > #family-doctor-block {
     grid-area: family;
-}
-
-form .user-details > #phone-number {
-    grid-area: num;
 }
 
 form .user-details > #health-complaint {
@@ -153,7 +141,6 @@ form .user-details .inner-box {
     font-size: 1.3rem;
 }
 
-.inner-box .info-block input#active-date,
 .inner-box .info-block input#active-time {
     background-color: #1975BB;
     border-color: #0CC5BF;
@@ -357,15 +344,11 @@ div#modal-window > * {
     }
 }
 
-
 @media screen and (max-width: 576px) {
     .form-container .user-details {
         grid-template-areas: "ln"
                              "name"
-                             "pat"
-                             "street"
-                             "house"
-                             "num"
+                             "contract"
                              "family"
                              "date"
                              "tm"

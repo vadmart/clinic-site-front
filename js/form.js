@@ -1,4 +1,36 @@
-const URL = "http://localhost:63342/Regional clinic website/info.json";
+const URL = "../info.json";
+const necessaryFields = {
+    firstname: document.getElementById("firstname"),
+    lastname: document.getElementById("lastname"),
+    contractNum: document.getElementById("contract")
+};
+
+for (var elem in necessaryFields) {
+    necessaryFields[elem].addEventListener("change", checkInvalid);
+    necessaryFields[elem].addEventListener("change", (e) => makeRequest(e, URL));
+}
+
+const familyDoctor = document.getElementById("family-doctor");
+const date = document.getElementById("date");
+const time = document.getElementById("time");
+
+const clear = document.getElementById("clear");
+clear.addEventListener("click", clearForm);
+
+const submitButton = document.getElementById("record");
+submitButton.addEventListener("click", (e) => {
+    submitForm(e);
+});
+
+const complaint = document.getElementById("complaint");
+
+const plainText = document.createElement("span");
+
+const errSpan = document.createElement("span");
+errSpan.className = "err-msg";
+errSpan.innerText = "Поле не може бути порожнім";
+
+console.log(window.lastname);
 
 Object.compare = function (obj1, obj2) {
     for (var el in obj1) {
@@ -19,38 +51,6 @@ Object.compare = function (obj1, obj2) {
     }
     return true;
 }
-
-const necessaryFields = {
-    firstname: document.getElementById("firstname"),
-    lastname: document.getElementById("lastname"),
-    patronymic: document.getElementById("patronymic"),
-    streetName: document.getElementById("street"),
-    houseNumber: document.getElementById("house-number"),
-    phoneNumber: document.getElementById("number"),
-};
-
-for (var elem in necessaryFields) {
-    necessaryFields[elem].addEventListener("change", checkInvalid);
-    necessaryFields[elem].addEventListener("change", (e) => makeRequest(e, URL));
-}
-
-const familyDoctor = document.getElementById("family-doctor");
-const date = document.getElementById("date");
-const time = document.getElementById("time");
-
-const clear = document.getElementById("clear");
-clear.addEventListener("click", clearForm);
-
-const submitButton = document.getElementById("record");
-submitButton.addEventListener("click", submitForm);
-
-const complaint = document.getElementById("complaint");
-
-const plainText = document.createElement("span");
-
-const errSpan = document.createElement("span");
-errSpan.className = "err-msg";
-errSpan.innerText = "Поле не може бути порожнім";
 
 
 function makeRequest(event, url) {
@@ -86,19 +86,18 @@ function getInfo(event, httpRequest) {
         }
     } catch
         (e) {
-        alert("Произошло исключение " + e.description);
+        alert("Було призведено виняток " + e.description);
     }
 }
+
+
 
 function showDoctor(e, doctorData) {
     clearFields(time, date, familyDoctor);
     const patient = {
         "lastName": necessaryFields.lastname.value,
         "firstName": necessaryFields.firstname.value,
-        "patronymic": necessaryFields.patronymic.value,
-        "streetName": necessaryFields.streetName.value,
-        "houseNumber": necessaryFields.houseNumber.value,
-        "phoneNumber": necessaryFields.phoneNumber.value
+        "contractNum": necessaryFields.contractNum.value
     };
     const doctor = findDoctor(patient, doctorData);
     if (doctor) {
@@ -146,32 +145,40 @@ function clearFields(...fields) {
 
 function showDateTime(doctorInfo) {
     const workDatetimeObj = doctorInfo["workSchedule"];
+    const calendar = document.createElement("input");
+    var min_date_value = "2500-01-01";
+    var max_date_value = "";
+    calendar.type = "date";
     for (var dt in workDatetimeObj) {
-        // для кожної дати з об'єкта створюємо відповідну кнопку та додаємо у блок дат
-        const dateBtn = document.createElement("input");
-        dateBtn.type = "button";
-        dateBtn.value = dt;
-        dateBtn.innerText = dt;
-        dateBtn.className = "date-button";
-        date.appendChild(dateBtn);
-        dateBtn.addEventListener("click", showTime);
+        if (dt > max_date_value) max_date_value = dt;
+        if (dt < min_date_value) min_date_value = dt;
     }
+    calendar.min = min_date_value;
+    calendar.max = max_date_value;
+    calendar.required = true;
+    calendar.id = "calendar";
+    date.appendChild(calendar);
+    calendar.addEventListener("change", showTime);
 
     function showTime(e = null) {
         clearFields(time);
         clearIds(document.getElementsByClassName(e.target.className));
-        e.target.id = "active-date";
         // створюємо кнопки із часом та додаємо у блок часів
         for (var tm of workDatetimeObj[e.target.value]) {
             const timeBtn = document.createElement("input");
             timeBtn.type = "button";
             timeBtn.value = tm;
-            timeBtn.innerText = tm;
+            timeBtn.id = tm;
             timeBtn.className = "time-button";
             time.appendChild(timeBtn);
             timeBtn.addEventListener("click", function (e) {
+                // убирати id кнопок часу при натисканні на одну з них
                 clearIds(document.getElementsByClassName(e.target.className));
                 e.target.id = "active-time";
+                // убирати колір на випадок, якщо кнопки червоні
+                for (var btn of document.getElementsByClassName(e.target.className)) {
+                    btn.style.backgroundColor = "";
+                }
             });
         }
     }
@@ -184,27 +191,23 @@ function showDateTime(doctorInfo) {
 }
 
 function submitForm(e) {
-    e.preventDefault();
     const form = document.querySelector(".form-container form");
-    const dateElem = document.querySelector(`#date #active-date`);
-    const timeElem = document.querySelector(`#time #active-time`);
-    if (form.checkValidity() && dateElem != null && timeElem != null) {
+    if (form.checkValidity() && document.getElementById("active-time")) {
         showModal();
+        e.preventDefault();
     } else {
+        checkTimeButtons();
         showModal(false);
         return
     }
-    const dt = dateElem.value.split(".").map((elem) => Number(elem));
-    const tm = timeElem.value.split(":").map((elem) => Number(elem));
+    const dt = document.getElementById("calendar").value.split("-").map((elem) => Number(elem));
+    const tm = document.getElementById("active-time").value.split(":").map((elem) => Number(elem));
     const obj = JSON.stringify({
         firstName: necessaryFields.firstname.value,
         lastName: necessaryFields.lastname.value,
-        patronymic: necessaryFields.patronymic.value,
-        streetName: necessaryFields.streetName.value,
-        houseNumber: necessaryFields.houseNumber.value,
-        phoneNumber: necessaryFields.phoneNumber.value,
+        contractNum: necessaryFields.contractNum.value,
         familyDoctor: familyDoctor.innerText,
-        dateTime: new Date(2022, dt[1] - 1, dt[0], tm[0] + 2, tm[1]),
+        dateTime: new Date(dt[0], dt[1] - 1, dt[2], tm[0] + 2, tm[1]),
         complaint: complaint.value
     });
 
@@ -230,6 +233,14 @@ function submitForm(e) {
             popUp.classList.remove("open");
         }
     }
+
+    function checkTimeButtons() {
+        for (var btn of document.getElementsByClassName("time-button"))
+            if (!document.getElementById("active-time")) {
+                btn.style.backgroundColor = "red";
+            }
+    }
+
     console.log(obj);
 }
 

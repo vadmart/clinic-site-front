@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Відгуки</title>
+    <title>Опитування про знання заходів у протидії COVID-19</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/reviews.css">
+    <link rel="stylesheet" href="../css/quiz.css">
 </head>
 <body>
 <div class="wrapper">
@@ -41,7 +41,7 @@
                 <a class="btn" href="schedule-work.html">Графік роботи</a>
             </li>
             <li class="menu-item">
-                <a class="btn" href="quiz.html">Опитування</a>
+                <a class="btn disabled" href="quiz.html">Опитування</a>
             </li>
         </ul>
         <div class="mobile-menu">
@@ -79,53 +79,25 @@
                     <a class="btn" href="schedule-work.html">Графік роботи</a>
                 </li>
                 <li class="menu-item">
-                    <a class="btn" href="quiz.html">Опитування</a>
+                    <a class="btn disabled" href="quiz.html">Опитування</a>
                 </li>
             </ul>
         </div>
     </header>
     <main>
         <div class="title-box">
-            <h2>Інформація про лікаря</h2>
+            <h2>Опитування щодо знання заходів на протидію COVID</h2>
         </div>
-        <div class="doctor-wrapper">
-            <div class="doctor-info">
-                <img src="../img/250w/alina-radecka.png" alt="">
-                <div class="doctor-description">
-                    <h3 class="header">Радецька Аліна Іванівна</h3>
-                    <div class="prof-info">
-                        <span class="category-info">Перша кваліфікаційна категорія</span>
-                        <div class="work-experience">Стаж: 35 років</div>
+        <div class="form-wrapper">
+            <form class="form-wrapper__form visible-item" action="#" method="POST">
+                <h2 id="form__title"></h2><br>
+                <fieldset id="form__content">
+                    <legend>Оберіть варіант</legend>
+                    <div id="form__variants">
                     </div>
-                    <a href="" class="feedback_btn">Залишити відгук</a>
-                </div>
-            </div>
-        </div>
-        <div class="title-box">
-            <h2>Відгуки</h2>
-        </div>
-        <div class="reviews">
-            <blockquote class="review">
-                <div class="account">
-                    <cite>Олег</cite>
-                    <time datetime="2018-08-18 14:50">09.08.18 14:50</time>
-                </div>
-                <p class="comment">
-                    Нечасто залишаю відгуки, але важко стриматися: лікар дуже класний! Майже з дитинства були проблеми
-                    із зором, але після надання консультації та лік вже є результати.
-                </p>
-            </blockquote>
-            <blockquote class="review">
-                <div class="account">
-                    <cite>Богдан</cite>
-                    <time datetime="2021-10-26 11:10">26.10.21 11:10</time>
-                </div>
-                <p class="comment">
-                    Добрий день! Хотів би щиро вдячити Вам, Аліна Іванівна, за дуже ефективний курс лікування. Я навіть
-                    не міг повірити, що одужання за 1 день - це реально. Ви дійсно талановита, а також пильна та добра
-                    людина, бажаю Вам успіху)
-                </p>
-            </blockquote>
+                </fieldset>
+                <a href="quiz_results.html" class="form__button">Продовжити</a>
+            </form>
         </div>
     </main>
     <footer>
@@ -153,7 +125,8 @@
         </div>
     </footer>
 </div>
-<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
+<!--<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>-->
 <script src="../js/header.js"></script>
+<script src="../js/quiz.js"></script>
 </body>
 </html>
