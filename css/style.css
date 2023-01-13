@@ -428,8 +428,6 @@ footer .socials {
     width: 100vw;
 }
 
-
-
 .what-makes-us-special-grid {
     display: grid;
     font-size: 1.2rem;
@@ -455,6 +453,56 @@ footer .socials {
 .what-makes-us-special-article img {
     height: 75px;
     margin: 0;
+}
+
+.reminder-popup {
+    position: fixed;
+    z-index: 1500;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    font-family: "Roboto", sans-serif;
+    line-height: 30px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reminder-popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.reminder-popup__body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+.reminder-popup__content {
+    background-color: #ffffff;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+}
+
+.reminder-popup__title {
+    font-size: 1.6rem;
+    margin-bottom: 2em;
+}
+
+.reminder-popup__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 @media screen and (max-width: 1300px) {

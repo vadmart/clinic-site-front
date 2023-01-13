@@ -1,8 +1,8 @@
-const URL = "../info.json";
+const URL = "../json/info.json";
 const necessaryFields = {
-    firstname: document.getElementById("firstname"),
-    lastname: document.getElementById("lastname"),
-    contractNum: document.getElementById("contract")
+    lastname: window["lastname"],
+    firstname: window["firstname"],
+    contractNum: window["contract"]
 };
 
 for (var elem in necessaryFields) {
@@ -190,11 +190,11 @@ function showDateTime(doctorInfo) {
     }
 }
 
-function submitForm(e) {
+function submitForm() {
     const form = document.querySelector(".form-container form");
     if (form.checkValidity() && document.getElementById("active-time")) {
         showModal();
-        e.preventDefault();
+        event.preventDefault();
     } else {
         checkTimeButtons();
         showModal(false);

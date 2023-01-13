@@ -84,6 +84,29 @@
     font-weight: 700;
 }
 
+.reviews__menu {
+    width: 80%;
+    display: grid;
+    grid-row-gap: 20px;
+    background-color: rgba(100, 100, 100, 0.1);
+    padding: 10px;
+}
+
+.reviews__menu__title {
+    text-align: center;
+    font-size: 1.3em;
+    font-family: Inter, sans-serif;
+}
+
+.reviews__menu__elems {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__elem {
+    font-family: Inter, sans-serif;
+}
+
 @media screen and (max-width: 768px) {
     .doctor-info {
         flex-direction: column;

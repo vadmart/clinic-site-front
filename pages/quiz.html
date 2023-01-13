@@ -89,15 +89,74 @@
             <h2>Опитування щодо знання заходів на протидію COVID</h2>
         </div>
         <div class="form-wrapper">
-            <form class="form-wrapper__form visible-item" action="#" method="POST">
+            <form class="form-wrapper__form" action="quiz_results.html" method="POST">
                 <h2 id="form__title"></h2><br>
                 <fieldset id="form__content">
                     <legend>Оберіть варіант</legend>
                     <div id="form__variants">
                     </div>
                 </fieldset>
-                <a href="quiz_results.html" class="form__button">Продовжити</a>
+                <input type="submit" class="form__button" value="Продовжити">
             </form>
+        </div>
+        <div class="results-wrapper hidden">
+            <div class="results">
+                <div class="variants">
+                    <p class="variants__title"></p>
+                    <div class="variants__answers">
+                        <div class="variants__answer chosen"></div>
+                        <div class="variants__answer correct"></div>
+                    </div>
+                </div>
+                <div class="variants">
+                    <p class="variants__title"></p>
+                    <div class="variants__answers">
+                        <div class="variants__answer chosen"></div>
+                        <div class="variants__answer correct"></div>
+                    </div>
+                </div>
+                <div class="variants">
+                    <p class="variants__title"></p>
+                    <div class="variants__answers">
+                        <div class="variants__answer chosen"></div>
+                        <div class="variants__answer correct"></div>
+                    </div>
+                </div>
+                <div class="variants">
+                    <p class="variants__title"></p>
+                    <div class="variants__answers">
+                        <div class="variants__answer chosen"></div>
+                        <div class="variants__answer correct"></div>
+                    </div>
+                </div>
+                <div class="total">
+                    <p class="total__title">Висновки</p>
+                    <div class="total__diagrams">
+                        <div class="result">
+                            <div class="variant"><p>Правильно</p></div>
+                            <div class="scale-wrapper">
+                                <div class="scale green"></div>
+                            </div>
+                            <div class="percentage"></div>
+                        </div>
+                        <div class="result">
+                            <div class="variant"><p>Неправильно</p></div>
+                            <div class="scale-wrapper">
+                                <div class="scale red"></div>
+                            </div>
+                            <div class="percentage"></div>
+                        </div>
+                    </div>
+                    <div class="verdict-wrapper">
+                        <p class="verdict">Ви пройшли тестування, а отже, гарно знаєтеся на заходах протидії COVID-19.
+                            Бувайте
+                            здорові!</p>
+                    </div>
+                </div>
+                <div class="home-wrapper">
+                    <a href="../index.html" class="home">Повернутися до головної сторінки</a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
@@ -125,7 +184,7 @@
         </div>
     </footer>
 </div>
-<!--<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>-->
+<script src="https://kit.fontawesome.com/c3664bd84b.js" crossorigin="anonymous"></script>
 <script src="../js/header.js"></script>
 <script src="../js/quiz.js"></script>
 </body>
